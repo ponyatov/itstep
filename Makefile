@@ -1,4 +1,10 @@
 
+BR_VER = 2019.02.4
+BR     = buildroot-$(BR_VER)
+BR_GZ  = $(BR).tar.gz
+
+.PHONY: os dirs gz src build firmware emu doc wiki merge update 
+
 APP ?= os
 HW ?= x86
 
@@ -9,7 +15,7 @@ include cpu/$(CPU).mk
 ###########################################
 	
 DOC = README.md wiki/*.md
-.PHONY: doc wiki
+
 doc: docs/index.html
 docs/index.html: $(DOC) Makefile
 	pandoc --metadata pagetitle=" " -f gfm -t html -s --toc -o $@ $(DOC)
@@ -20,10 +26,6 @@ wiki:
 
 ########################################### OS
 
-BR_VER = 2019.02.4
-BR     = buildroot-$(BR_VER)
-BR_GZ  = $(BR).tar.gz
-
 MODULE = $(notdir $(CURDIR))
 
 CWD = $(CURDIR)
@@ -32,7 +34,7 @@ TMP = $(CWD)/tmp
 SRC = $(TMP)/src
 FW  = $(CWD)/firmware
 
-os: dirs gz src build
+os: dirs gz src build firmware
 
 dirs:
 	mkdir -p $(GZ) $(TMP) $(SRC) $(FW)
@@ -47,6 +49,7 @@ $(BR)/.config: $(BR)/README all.br app/$(APP).br hw/$(HW).br cpu/$(CPU).br \
 	cat all.br app/$(APP).br hw/$(HW).br cpu/$(CPU).br >> $@
 	echo "BR2_DL_DIR=\"$(CWD)/gz\"" >> $@
 	echo BR2_ROOTFS_OVERLAY=\"$(CWD)/rootfs\" >> $@
+	echo BR2_LINUX_KERNEL_CONFIG_FRAGMENT_FILES=\"$(CWD)/all.kernel $(CWD)/hw/$(HW).kernel $(CWD)/cpu/$(CPU).kernel\" >> $@
 
 src: buildroot
 buildroot: $(BR)/README
@@ -56,9 +59,12 @@ $(BR)/README: $(GZ)/$(BR_GZ)
 
 $(GZ)/$(BR_GZ):
 	wget -c -O $@ https://github.com/buildroot/buildroot/archive/$(BR_VER).tar.gz
+	
+firmware/%: $(BR)/output/images/%
+	cp $< $@
 
-.PHONY: update release
-update:
+.PHONY: merge release
+merge:
 	git checkout master
-	git checkout ponyatov -- Makefile app hw cpu all.br rootfs README.md
+	git checkout ponyatov -- Makefile app hw cpu all.* rootfs README.md
 	$(MAKE) wiki ; $(MAKE) doc
