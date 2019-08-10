@@ -1,0 +1,2 @@
+BR_DEFCONFIG = qemu_x86
+CPU ?= i486
