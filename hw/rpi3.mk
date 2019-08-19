@@ -1,1 +1,2 @@
-BR_DEFCONFIG = raspberry3
+BR_DEFCONFIG = raspberrypi3
+CPU = BCM2837

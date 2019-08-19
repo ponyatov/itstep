@@ -11,6 +11,7 @@ HW ?= x86
 include app/$(APP).mk
 include hw/$(HW).mk
 include cpu/$(CPU).mk
+include arch/$(ARCH).mk
 
 ###########################################
 	
@@ -41,15 +42,28 @@ dirs:
 	
 gz: $(GZ)/$(BR_GZ)
 
+CONFIG_MK  =        	   $(CWD)/app/$(APP).mk $(CWD)/hw/$(HW).mk
+CONFIG_MK +=		 	   $(CWD)/cpu/$(CPU).mk $(CWD)/arch/$(ARCH).mk
+CONFIG_BR  = $(CWD)/all.br $(CWD)/app/$(APP).br $(CWD)/hw/$(HW).br
+CONFIG_BR += 			   $(CWD)/cpu/$(CPU).br $(CWD)/arch/$(ARCH).br
+
+CONFIG_BB = $(CWD)/app/$(APP).bbox
+
+CONFIG_KR  = $(CWD)/all.kernel $(CWD)/hw/$(HW).kernel
+CONFIG_KR += $(CWD)/cpu/$(CPU).kernel $(CWD)/arch/$(ARCH).kernel
+
+EXTRA_BB = $(CWD)/buildroot:$(CWD)/gambox
+
 build: $(BR)/.config
 	cd $(BR) ; make menuconfig && make
-$(BR)/.config: $(BR)/README all.br app/$(APP).br hw/$(HW).br cpu/$(CPU).br \
-				Makefile app/$(APP).mk hw/$(HW).mk cpu/$(CPU).mk
-	cd $(BR) ; make $(BR_DEFCONFIG)_defconfig
-	cat all.br app/$(APP).br hw/$(HW).br cpu/$(CPU).br >> $@
-	echo "BR2_DL_DIR=\"$(CWD)/gz\"" >> $@
+$(BR)/.config: $(BR)/README Makefile $(CONFIG_BR) $(CONFIG_BB) $(CONFIG_MK)
+	cd $(BR) ; make BR2_EXTERNAL=\"$(EXTRA_BB)\" $(BR_DEFCONFIG)_defconfig
+	cat $(CONFIG_BR) >> $@
+	echo BR2_DL_DIR=\"$(CWD)/gz\" >> $@
 	echo BR2_ROOTFS_OVERLAY=\"$(CWD)/rootfs\" >> $@
-	echo BR2_LINUX_KERNEL_CONFIG_FRAGMENT_FILES=\"$(CWD)/all.kernel $(CWD)/hw/$(HW).kernel $(CWD)/cpu/$(CPU).kernel\" >> $@
+	echo BR2_LINUX_KERNEL_CONFIG_FRAGMENT_FILES=\"$(CONFIG_KR)\" >> $@
+	echo BR2_LINUX_KERNEL_CUSTOM_LOGO_PATH=\"$(CWD)/wiki/logo.png\" >> $@
+	echo BR2_PACKAGE_BUSYBOX_CONFIG_FRAGMENT_FILES=\"$(CONFIG_BB)\" >> $@
 
 src: buildroot
 buildroot: $(BR)/README
@@ -62,9 +76,14 @@ $(GZ)/$(BR_GZ):
 	
 firmware/%: $(BR)/output/images/%
 	cp $< $@
+	
+MERGE  = Makefile README.md
+MERGE += app hw cpu arch all.* rootfs src
+MERGE += mex
+MERGE += metaL
 
 .PHONY: merge release
 merge:
 	git checkout master
-	git checkout ponyatov -- Makefile app hw cpu all.* rootfs README.md
+	git checkout ponyatov -- $(MERGE) 
 	$(MAKE) wiki ; $(MAKE) doc
