@@ -1,3 +1,12 @@
 *~
 *.swp
 wiki/
+buildroot-20*/
+
+bin/
+lib/
+lib64
+share/
+pyvenv.cfg
+
+tmp/

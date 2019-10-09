@@ -1,0 +1,5 @@
+# BusyBox tuning
+
+CONFIG_BZIP2=y
+
+CONFIG_DEPMOD=y

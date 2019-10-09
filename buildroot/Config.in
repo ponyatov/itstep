@@ -1,0 +1,50 @@
+config CONFIG_ITSTEP
+	bool "********** https://github.com/ponyatov/itstep/wiki/ **********"
+
+config CONFIG_ITSTEP_DESKTOP
+	bool "full-sized X Window desktop"
+	default n
+	select BR2_PACKAGE_XORG7
+	select BR2_PACKAGE_XSERVER_XORG_SERVER
+	select BR2_PACKAGE_XTERM
+	select BR2_PACKAGE_XAPP_XSETROOT
+	select BR2_PACKAGE_XAPP_XINIT
+	#select BR2_PACKAGE_XAPP_XDM
+#	if BR2_PACKAGE_SDL2
+	select BR2_PACKAGE_SDL2_X11
+	select BR2_PACKAGE_SDL2_KMSDRM
+#	endif
+
+config CONFIG_ITSTEP_WAYLAND
+	bool "Wayland desktop /experimental/"
+	default y
+	select BR2_PACKAGE_WAYLAND
+	select BR2_PACKAGE_MESA3D
+	select BR2_PACKAGE_MESA3D_OPENGL_ES
+	select BR2_PACKAGE_SDL2_KMSDRM
+	select BR2_PACKAGE_SDL2_OPENGLES
+
+config CONFIG_ITSTEP_WAYLAND_I386
+	bool "i386"
+	default y
+	depends on CONFIG_ITSTEP_WAYLAND && BR2_i386
+	select BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_VIRGL
+
+config CONFIG_ITSTEP_WAYLAND_ARM
+	bool "arm"
+	default y
+	depends on CONFIG_ITSTEP_WAYLAND && BR2_arm
+	select BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_VIRGL
+	select BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_VC4
+
+config CONFIG_ITSTEP_PYTHON
+	bool "Python SDK"
+	default y
+	select BR2_PACKAGE_PYTHON3
+	select BR2_PACKAGE_PYTHON3_SQLITE
+	select BR2_PACKAGE_PYTHON_PIP
+	select BR2_PACKAGE_PYTHON_PLY
+	select BR2_PACKAGE_PYTHON_SERIAL
+	select BR2_PACKAGE_PYTHON_FLASK
+	select BR2_PACKAGE_PYTHON_FLASK_LOGIN
+	

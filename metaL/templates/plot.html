@@ -1,0 +1,62 @@
+{% extends "all.html" %}
+
+{% block lib %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/2.0.5/go.js"></script>
+{% endblock %}
+
+{% block dump %}
+<style>
+#plot { width:95%; height:83%; border: 1px solid white; }
+</style>
+<div id=plot></div>
+{% endblock %}
+
+{% block script %}
+<script>
+
+var $ = go.GraphObject.make;
+var dia = $(go.Diagram, "plot", {
+		"toolManager.mouseWheelBehavior": go.ToolManager.WheelZoom,
+	});
+
+dia.model = $(go.TreeModel);
+dia.model.nodeDataArray = []
+
+dia.nodeTemplate =
+	$(go.Node, "Auto",
+		{ background: "transparent" },
+		$(go.Shape,
+			{ figure: "RoundedRectangle", fill: "darkblue" }),
+		$(go.TextBlock,
+			{stroke:"white", font:"{{web['font']['size'].val}} {{web['font'].val}}"},
+			new go.Binding("text", "head"))
+	);
+	
+dia.linkTemplate =
+    $(go.Link,
+    	$(go.Shape, { stroke:"white" }),
+    	$(go.Shape, { toArrow: "StretchedDiamond", stroke:"white", fill:"darkgreen" }),
+    	$(go.TextBlock,
+    		{
+    			stroke:"yellow", background:"{{web['back'].val}}", 
+    			font:"{{web['font']['size'].val}} {{web['font'].val}}",
+    			segmentIndex: 0, segmentFraction: 0.8
+    		},
+    		new go.Binding("text", "link"))
+   	);
+	
+dia.layout = new go.ForceDirectedLayout();
+
+dia.initialAutoScale = go.Diagram.Uniform;
+
+var ajax = new XMLHttpRequest()
+ajax.open('GET','/ajax/plot')
+ajax.onload = function() {
+	console.log(ajax.status)
+	if (ajax.status == 200)
+		dia.model.nodeDataArray = JSON.parse(ajax.responseText)
+}
+ajax.send()
+
+</script>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% block head %}
+<head>
+<title>{{ctx.head()}}</title>
+<link rel="shortcut icon" href="/logo.png">
+<link rel="stylesheet" href="/dark.css">
+{% block lib %}
+{% endblock %}
+</head>
+{% endblock %}
+
+{% block dump %}
+{% endblock %}
+
+{% block form %}
+<form id=cli action="" method="post" novalidate>
+{{ form.hidden_tag() }}
+{{ form.pad() }}
+{{ form.go() }}
+</form>
+{% endblock %}
+
+{% block script %}
+<script></script>
+{% endblock %}

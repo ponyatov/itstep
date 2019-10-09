@@ -1,0 +1,10 @@
+* {
+	background: {{web['back'].val}};
+	color:		{{web['fore'].val}};
+	font:		{{web['font'].val}};
+	font-size:	{{web['font']['size'].val}};
+}
+
+#cli { position:absolute; bottom:0; width:98%; }
+#cli > * { width:100%; }
+#pad { color:lightblue; }

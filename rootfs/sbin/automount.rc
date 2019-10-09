@@ -1,0 +1,16 @@
+#!/bin/sh
+
+env > /tmp/env
+echo $$ $0 $1 $2 $3 > /tmp/args
+
+case "$MDEV" in
+	"sr0" )
+		case "$ACTION" in
+			"add" )
+				modprobe isofs
+				mkdir /media/$MDEV
+				mount /dev/$MDEV /media/$MDEV
+			;;
+		esac
+	;;
+esac
