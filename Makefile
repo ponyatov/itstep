@@ -6,17 +6,15 @@ TMP = $(CWD)/tmp
 SRC = $(TMP)/src
 FW  = $(CWD)/firmware
 
-
 BR_VER = 2019.05.2
-# 2019.02.5
-# 2019.02.4
+
 BR     = buildroot-$(BR_VER)
 BR_GZ  = $(BR).tar.gz
 
 .PHONY: os dirs gz src build firmware emu doc wiki merge update 
 
 APP ?= os
-HW  ?= rpi3
+HW  ?= x86
 
 include app/$(APP).mk
 include hw/$(HW).mk

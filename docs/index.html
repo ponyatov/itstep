@@ -11,6 +11,71 @@
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
+  <style>
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -21,27 +86,222 @@
 <li><a href="#itstep">itstep</a><ul>
 <li><a href="#открытые-материалы-учлаба">открытые материалы уч.лаба</a></li>
 <li><a href="#buildroot">Buildroot</a><ul>
+<li><a href="#установка-для-текущего-проекта">установка для текущего проекта</a></li>
 <li><a href="#типичные-ошибки">типичные ошибки</a></li>
+<li><a href="#расширение-buildroot">[[расширение Buildroot]]</a></li>
 </ul></li>
+</ul></li>
+<li><a href="#c">C++</a></li>
+<li><a href="#dosbox">DOSBOX</a><ul>
+<li><a href="#эмулятор-компьютеров-x86-dos">эмулятор компьютеров x86 DOS</a><ul>
+<li><a href="#gamewolf3ddosboxconf"><code>/game/wolf3d/dosbox.conf</code></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#eds-executable-data-structure">EDS: Executable Data Structure</a><ul>
+<li><a href="#исполняемая-структура-данных">исполняемая структура данных</a></li>
+</ul></li>
+<li><a href="#frame-фрейм">Frame (фрейм)</a><ul>
+<li><a href="#текстовый-дамп-только-короткий-заголовок-и-полный-в-виде-дерева">текстовый дамп: только короткий заголовок и полный (в виде дерева)</a></li>
+<li><a href="#переопределение-операторов-python-для-фреймов">переопределение операторов Python для фреймов</a></li>
+<li><a href="#стековые-операции-на-nest">стековые операции на <code>nest[]</code></a></li>
+<li><a href="#формирование-графа-фреймов-на-python">формирование графа фреймов на Python</a></li>
+</ul></li>
+<li><a href="#gnu-make">GNU Make</a><ul>
+<li><a href="#секции-makefile">секции Makefile</a></li>
+<li><a href="#переменные">переменные</a></li>
+<li><a href="#переменные-подстановки-целиисточников">переменные подстановки цели/источников</a></li>
+<li><a href="#стандартные-переменные">стандартные переменные</a></li>
+<li><a href="#типовые-переменные-в-проектах">типовые переменные в проектах</a><ul>
+<li><a href="#каталоги">каталоги</a></li>
+</ul></li>
+<li><a href="#разбор-примера-makefile-используемого-в-buildroot">разбор примера <code>Makefile</code> используемого в [[Buildroot]]</a></li>
 </ul></li>
 <li><a href="#открытые-материалы-учебной-лаборатории">открытые материалы учебной лаборатории</a><ul>
-<li><a href="#компьютерной-академии-шаг-самара">компьютерной академии ШАГ (Самара)</a><ul>
+<li><a href="#компьютерной-академии-шаг-самара">компьютерной академии ШАГ (Самара)</a></li>
+<li><a href="#введение-в-учебный-курс">[[Введение в учебный курс]]</a><ul>
 <li><a href="#модульная-система-обучения">[[модульная система обучения]]</a></li>
-<li><a href="#raspberry-pi-3-b">Raspberry Pi 3 B+</a></li>
 </ul></li>
-<li><a href="#raspberry-pi-3-b-1">Raspberry Pi 3 B</a></li>
+<li><a href="#kmsdrm">KMS/DRM</a></li>
+<li><a href="#krr-knowledge-representation--reasoning">KRR: Knowledge Representation &amp; Reasoning</a><ul>
+<li><a href="#представление-знаний-и-автоматические-рассуждения">Представление знаний и автоматические рассуждения</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#kconfig">Kconfig</a><ul>
+<li><a href="#linuxsdl">Linux/SDL</a></li>
+</ul></li>
+<li><a href="#linux">Linux</a><ul>
+<li><a href="#openwrt">OpenWrt</a><ul>
+<li><a href="#установка-базовой-системы-сборки">установка базовой системы сборки</a></li>
+<li><a href="#установка-пакетов-расширений">установка пакетов расширений</a></li>
+<li><a href="#преконфигурация-для-проекта">преконфигурация для проекта</a></li>
+<li><a href="#файл-с-полезными-опциями">файл с полезными опциями</a></li>
+<li><a href="#сборка">сборка</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#prolog">Prolog</a><ul>
+<li><a href="#магия-унификации">магия унификации</a></li>
+</ul></li>
+<li><a href="#python">Python</a></li>
+<li><a href="#qemu">QEMU</a><ul>
+<li><a href="#windows-в-эмуляции">Windows в эмуляции</a></li>
+<li><a href="#raspberry-pi-3-b">[[Raspberry Pi]] 3 B</a><ul>
+<li><a href="#raspberry-pi-3-b-1">Raspberry Pi 3 B+</a></li>
+</ul></li>
 <li><a href="#raspberry-pi">Raspberry Pi</a><ul>
-<li><a href="#raspberry-pi-3-b-2">[[Raspberry Pi 3 B+]]</a></li>
+<li><a href="#raspberry-pi-3-b-2">[[Raspberry Pi 3 B]]</a></li>
+<li><a href="#raspberry-pi-4-model-b">[[Raspberry Pi 4 Model B]]</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#rust">Rust</a></li>
+<li><a href="#sdl">SDL</a><ul>
+<li><a href="#базовая-библиотека-графики-и-вводавывода-для-разработки-игр">Базовая библиотека графики и ввода/вывода для разработки игр</a><ul>
+<li><a href="#установка-под-linux">Установка под Linux</a></li>
+<li><a href="#установка-под-windows">Установка под Windows</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#skynet">Skynet</a><ul>
+<li><a href="#which-programming-language-will-be-best-for-making-skynet-and-why">Which programming language will be best for making Skynet, and why?</a></li>
+<li><a href="#какой-язык-программирования-лучше-всего-подойдет-для-создания-skynet-и-почему">Какой язык программирования лучше всего подойдет для создания Skynet и почему?</a></li>
+<li><a href="#vagrant">Vagrant</a><ul>
+<li><a href="#yieldprolog">Yield<code>Prolog</code></a></li>
+</ul></li>
+<li><a href="#baremetal-программирование">baremetal программирование</a></li>
+<li><a href="#встраиваемый-embedded-linux">встраиваемый embedded Linux</a><ul>
+<li><a href="#i486">i486</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#язык-metal">Язык <code>metaL</code></a><ul>
+<li><a href="#абстрактная-машина-языка-metal">Абстрактная машина языка <code>metaL</code></a></li>
+</ul></li>
+<li><a href="#mex">mex</a><ul>
+<li><a href="#файлы">файлы</a></li>
+<li><a href="#mmap-файлы-отображаемые-в-память">mmap: файлы, отображаемые в память</a></li>
+<li><a href="#openwrt-makefile">openwrt Makefile</a></li>
+<li><a href="#введение-в-учебный-курс-1">Введение в учебный курс</a><ul>
+<li><a href="#цели">Цели</a></li>
 </ul></li>
 <li><a href="#игровая-консоль">Игровая консоль</a></li>
+<li><a href="#игровая-консоль-1">Игровая консоль</a></li>
+</ul></li>
+<li><a href="#интернет-вещей">Интернет вещей</a><ul>
+<li><a href="#что-же-такое-iot">Что же такое IoT?</a><ul>
+<li><a href="#классическая-архитектура-интернета-вещей">Классическая архитектура интернета вещей</a></li>
+<li><a href="#распределение-языков-программирования">Распределение языков программирования</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#язык-c">Язык C++</a><ul>
+<li><a href="#введение-в-учебный-курс-2">[[Введение в учебный курс]]</a><ul>
+<li><a href="#компиляторы">Компиляторы</a></li>
+</ul></li>
+<li><a href="#основы-c">Основы C++</a><ul>
+<li><a href="#структура-программы">Структура программы</a></li>
+<li><a href="#переменные-и-типы">Переменные и типы</a></li>
+<li><a href="#константы">Константы</a></li>
+<li><a href="#операторы">Операторы</a></li>
+<li><a href="#базовый-вводвывод">Базовый ввод/вывод</a></li>
+</ul></li>
+<li><a href="#структура-программы-1">Структура программы</a><ul>
+<li><a href="#управляющие-структуры">Управляющие структуры</a></li>
+<li><a href="#функции">Функции</a></li>
+<li><a href="#перегрузка-и-шаблоны">Перегрузка и шаблоны</a></li>
+<li><a href="#видимость-имен">Видимость имен</a></li>
+</ul></li>
+<li><a href="#составные-типы-данных">Составные типы данных</a><ul>
+<li><a href="#массивы">Массивы</a></li>
+<li><a href="#последовательности-симолов">Последовательности симолов</a></li>
+<li><a href="#указатели">Указатели</a></li>
+<li><a href="#динамическая-память">Динамическая память</a></li>
+<li><a href="#структуры-данных">Структуры данных</a></li>
+<li><a href="#другие-типы-данных">Другие типы данных</a></li>
+</ul></li>
+<li><a href="#классы">Классы</a><ul>
+<li><a href="#классы-i">Классы (I)</a></li>
+<li><a href="#классы-ii">Классы (II)</a></li>
+<li><a href="#специальные-члены-класса">Специальные члены класса</a></li>
+<li><a href="#наследование-и-дружественность">Наследование и дружественность</a></li>
+<li><a href="#полиморфизм">Полиморфизм</a></li>
+</ul></li>
+<li><a href="#другие-фичи-языка">Другие фичи языка</a><ul>
+<li><a href="#преобразования-типов">Преобразования типов</a></li>
+<li><a href="#исключения">Исключения</a></li>
+<li><a href="#директивы-препроцессора">Директивы препроцессора</a></li>
+</ul></li>
+<li><a href="#стандартная-библиотека-c">Стандартная библиотека C++</a><ul>
+<li><a href="#вводвывод-на-файлах">Ввод/вывод на файлах</a></li>
+</ul></li>
+<li><a href="#stl-стандартная-библиотека-шаблонов">STL: Стандартная библиотека шаблонов</a><ul>
+<li><a href="#итераторы">Итераторы</a></li>
+<li><a href="#коллекции">Коллекции</a></li>
+<li><a href="#обобщенные-алгоритмы">Обобщенные алгоритмы</a></li>
+</ul></li>
+<li><a href="#книги">Книги</a><ul>
+<li><a href="#online">online</a></li>
+</ul></li>
+<li><a href="#абстрактная-машина-языка-программирования">абстрактная машина языка программирования</a></li>
+<li><a href="#гомоиконичность">гомоиконичность</a></li>
+</ul></li>
+<li><a href="#граф-не-дракула">Граф (не Дракула)</a><ul>
 <li><a href="#интерн-обучение">интерн-обучение</a></li>
+</ul></li>
+<li><a href="#метапрограммирование">метапрограммирование</a><ul>
+<li><a href="#настройка-venv-для-python">настройка venv для Python</a></li>
 <li><a href="#разработка-встраиваемых-систем">разработка встраиваемых систем</a></li>
+</ul></li>
+<li><a href="#разработка-игр">разработка игр</a><ul>
+<li><a href="#расширение-buildroot-1">расширение Buildroot</a></li>
+<li><a href="#сборка-мусора">сборка мусора</a></li>
+</ul></li>
+<li><a href="#семантический-ии">семантический ИИ</a><ul>
+<li><a href="#собираем-собственную-linux-систему">собираем собственную Linux систему</a><ul>
+<li><a href="#установка">установка</a></li>
+<li><a href="#структура-проекта">структура проекта</a></li>
+<li><a href="#переменные-make-для-настройки-сборки">переменные <code>make</code> для настройки сборки</a></li>
+<li><a href="#сборка-системы-для-x86">сборка системы для x86</a></li>
+<li><a href="#запуск-в-виртуальной-машине">запуск в виртуальной машине</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#создание-языков-программирования">создание языков программирования</a><ul>
+<li><a href="#трансформация-программ">трансформация программ</a><ul>
+<li><a href="#утечка-памяти">утечка памяти</a></li>
+</ul></li>
+<li><a href="#фреймы-марвина-мински">фреймы Марвина Мински</a></li>
 </ul></li>
 </ul>
 </nav>
 <h1 id="itstep">itstep</h1>
 <h2 id="открытые-материалы-учлаба">открытые материалы уч.лаба</h2>
+<p>(c) Dmitry Ponyatov &lt;<a href="mailto:dponyatov@gmail.com">dponyatov@gmail.com</a>&gt; All rights reserved</p>
+<p>wiki (ru): <a href="https://github.com/ponyatov/itstep/wiki/">https://github.com/ponyatov/itstep/wiki/</a></p>
+<ul>
+<li>игровая консоль на Raspberry Pi и разработка собственных игр</li>
+<li>встраиваемый Linux</li>
+<li>программирование на C/C++/Python/Rust</li>
+</ul>
 <h2 id="buildroot">Buildroot</h2>
+<h3 id="установка-для-текущего-проекта">установка для текущего проекта</h3>
+<pre class="{Makefile}"><code>## Makefile
+
+os: dirs gz
+
+BR_VER = 2019.02.4
+BR     = buildroot-$(BR_VER)
+BR_GZ  = $(BR).tar.gz
+
+MODULE = $(notdir $(CURDIR))
+
+CWD = $(CURDIR)
+GZ  = $(CWD)/gz
+TMP = $(CWD)/tmp
+SRC = $(TMP)/src
+
+dirs:
+    mkdir -p $(GZ) $(TMP) $(SRC)
+    
+gz: $(GZ)/$(BR_GZ)
+
+$(GZ)/$(BR_GZ):
+    wget -c -O $@ https://github.com/buildroot/buildroot/archive/$(BR_VER).tar.gz
+</code></pre>
 <h3 id="типичные-ошибки">типичные ошибки</h3>
 <ul>
 <li>не выключайте [[squashfs]],
@@ -49,11 +309,301 @@
 <li>иначе сборщик не добавит в прошивку [[.dts]] и система не будет запускаться</li>
 </ul></li>
 </ul>
+<h3 id="расширение-buildroot">[[расширение Buildroot]]</h3>
+<ul>
+<li><a href="http://buildroot.uclibc.org/downloads/manual/manual.html#adding-packages">пользовательские пакеты</a></li>
+<li><a href="https://github.com/maximeh/buildroot/blob/master/docs/manual/adding-packages-generic.txt">полностью кастомный пакет</a></li>
+</ul>
+<h1 id="c">C++</h1>
+<h1 id="dosbox">DOSBOX</h1>
+<h2 id="эмулятор-компьютеров-x86-dos">эмулятор компьютеров x86 DOS</h2>
+<p>предназначен для запуска игр и программ для старых компьютеров AT/XT 8086/286 под поддерживаемыми операционными системами, в том числе Linux / Raspberry Pi.</p>
+<p>каждая программа часто требует индивидуальной настройки, для запуска отдельно, или можно настроить одну виртуальную машину сразу на все программы для DOS</p>
+<ul>
+<li><a href="https://ru.wikihow.com/использовать-DOSBox">https://ru.wikihow.com/использовать-DOSBox</a></li>
+<li><a href="https://www.old-games.ru/wiki/Dosbox.conf">https://www.old-games.ru/wiki/Dosbox.conf</a></li>
+</ul>
+<h3 id="gamewolf3ddosboxconf"><code>/game/wolf3d/dosbox.conf</code></h3>
+<pre><code></code></pre>
+<p>запуск</p>
+<pre><code>$ cd /game/wolf3d ; dosbox -conf dosbox.conf
+</code></pre>
+<h1 id="eds-executable-data-structure">EDS: Executable Data Structure</h1>
+<h2 id="исполняемая-структура-данных">исполняемая структура данных</h2>
+<p><a href="https://github.com/ponyatov/itstep/wiki/Skynet">https://github.com/ponyatov/itstep/wiki/Skynet</a></p>
+<h1 id="frame-фрейм">Frame (фрейм)</h1>
+<p><a href="https://github.com/ponyatov/itstep/wiki/Skynet">https://github.com/ponyatov/itstep/wiki/Skynet</a></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">class</span> Frame:</span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="co"># конструктор</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,V):</span>
+<span id="cb4-5"><a href="#cb4-5"></a>        <span class="co"># тэг типа/класса</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>        <span class="va">self</span>.<span class="bu">type</span> <span class="op">=</span> <span class="va">self</span>.__class__.<span class="va">__name__</span>.lower()</span>
+<span id="cb4-7"><a href="#cb4-7"></a>        <span class="co"># скалярное значение</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>        <span class="va">self</span>.val  <span class="op">=</span> V</span>
+<span id="cb4-9"><a href="#cb4-9"></a>        <span class="co"># ассоциативный массив слотов, указывающий на другие слоты по имени</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>        <span class="va">self</span>.slot <span class="op">=</span> {}</span>
+<span id="cb4-11"><a href="#cb4-11"></a>        <span class="co"># упорядоченное хранилище = вектор = стек = очередь</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a>        <span class="va">self</span>.nest <span class="op">=</span> []</span>
+<span id="cb4-13"><a href="#cb4-13"></a>        <span class="co"># счетчик ссылок для системы автоматического управления памятью (см. сборщик мусора)</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a>        <span class="va">self</span>.ref  <span class="op">=</span> <span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>    <span class="co"># служебные методы для сборки мусора,</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="kw">def</span> _use(<span class="va">self</span>): <span class="va">self</span>.ref <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>    <span class="co"># для Python полагаемся на встроенные механизмы автоматической памяти</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>    <span class="kw">def</span> _free(<span class="va">self</span>): <span class="va">self</span>.ref <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>    <span class="co"># при реализации на C++ придется писать собственные спец.аллокаторы</span></span></code></pre></div>
+<h3 id="текстовый-дамп-только-короткий-заголовок-и-полный-в-виде-дерева">текстовый дамп: только короткий заголовок и полный (в виде дерева)</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>    <span class="co"># callback для print, вызывается автоматически в т.ч. в выражениях &#39;%s&#39; % frame</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb6-3"><a href="#cb6-3"></a>        <span class="cf">return</span> <span class="va">self</span>.dump()</span>
+<span id="cb6-4"><a href="#cb6-4"></a></span>
+<span id="cb6-5"><a href="#cb6-5"></a>    <span class="co"># полный дамп в виде дерева</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a>    <span class="kw">def</span> dump(<span class="va">self</span>,depth<span class="op">=</span><span class="dv">0</span>,prefix<span class="op">=</span><span class="st">&#39;&#39;</span>):</span>
+<span id="cb6-7"><a href="#cb6-7"></a>        <span class="co"># начало секции текста: заголовок сдвинутый табуляциями на глубину вложенности поддерева</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a>        tree <span class="op">=</span> <span class="va">self</span>._pad(depth) <span class="op">+</span> <span class="va">self</span>.head(prefix)</span>
+<span id="cb6-9"><a href="#cb6-9"></a>        <span class="co"># проверка на рекурсивность структуры</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a>        <span class="cf">if</span> <span class="kw">not</span> depth: Frame._dumped <span class="op">=</span> []</span>
+<span id="cb6-11"><a href="#cb6-11"></a>        <span class="co"># если текущий фрейм уже сдампили раньше, внутренности не показываем _/</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a>        <span class="cf">if</span> <span class="va">self</span> <span class="kw">in</span> Frame._dumped: <span class="cf">return</span> tree <span class="op">+</span> <span class="st">&#39; _/&#39;</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a>        <span class="cf">else</span>: Frame._dumped.append(<span class="va">self</span>)</span>
+<span id="cb6-14"><a href="#cb6-14"></a>        <span class="co"># дамп слотов: каждый слот выводим в форме &lt;имя&gt; = &lt;содержимое связанного слота...&gt;</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="va">self</span>.slot:</span>
+<span id="cb6-16"><a href="#cb6-16"></a>            tree <span class="op">+=</span> <span class="va">self</span>.slot[i].dump(depth<span class="op">+</span><span class="dv">1</span>,prefix<span class="op">=</span>i<span class="op">+</span><span class="st">&#39; = &#39;</span>)</span>
+<span id="cb6-17"><a href="#cb6-17"></a>        <span class="co"># дамп вложенных слотов (рекурсивно)</span></span>
+<span id="cb6-18"><a href="#cb6-18"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="va">self</span>.nest:</span>
+<span id="cb6-19"><a href="#cb6-19"></a>            tree <span class="op">+=</span> j.dump(depth<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb6-20"><a href="#cb6-20"></a>        <span class="co"># возвращаем строку полученного дампа</span></span>
+<span id="cb6-21"><a href="#cb6-21"></a>        <span class="cf">return</span> tree</span>
+<span id="cb6-22"><a href="#cb6-22"></a></span>
+<span id="cb6-23"><a href="#cb6-23"></a>    <span class="co"># короткий дамп фрейма: только заголовок, уникальный id, и счетчик ссылок</span></span>
+<span id="cb6-24"><a href="#cb6-24"></a>    <span class="kw">def</span> head(<span class="va">self</span>,prefix<span class="op">=</span><span class="st">&#39;&#39;</span>):</span>
+<span id="cb6-25"><a href="#cb6-25"></a>        <span class="cf">return</span> <span class="st">&#39;</span><span class="sc">%s</span><span class="st">&lt;</span><span class="sc">%s</span><span class="st">:</span><span class="sc">%s</span><span class="st">&gt; @</span><span class="sc">%x</span><span class="st"> #</span><span class="sc">%i</span><span class="st">&#39;</span> <span class="op">%</span> <span class="op">\</span></span>
+<span id="cb6-26"><a href="#cb6-26"></a>            (prefix,<span class="va">self</span>.<span class="bu">type</span>,<span class="va">self</span>._val(),<span class="bu">id</span>(<span class="va">self</span>),<span class="va">self</span>.ref)</span>
+<span id="cb6-27"><a href="#cb6-27"></a></span>
+<span id="cb6-28"><a href="#cb6-28"></a>    <span class="co"># private: отбивка переводом строки и табуляциями (для дампа деревом)</span></span>
+<span id="cb6-29"><a href="#cb6-29"></a>    <span class="kw">def</span> _pad(<span class="va">self</span>,depth):</span>
+<span id="cb6-30"><a href="#cb6-30"></a>        <span class="cf">return</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span> <span class="op">+</span> <span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span> <span class="op">*</span> depth</span>
+<span id="cb6-31"><a href="#cb6-31"></a>    <span class="co"># private: представление значения в виде строки для дампа (возможны варианты)</span></span>
+<span id="cb6-32"><a href="#cb6-32"></a>    <span class="kw">def</span> _val(<span class="va">self</span>):</span>
+<span id="cb6-33"><a href="#cb6-33"></a>        <span class="cf">return</span> <span class="bu">str</span>(<span class="va">self</span>.val)</span></code></pre></div>
+<h3 id="переопределение-операторов-python-для-фреймов">переопределение операторов Python для фреймов</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>    <span class="co"># A[&#39;key&#39;]</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>    <span class="kw">def</span> <span class="fu">__getitem__</span>(<span class="va">self</span>,key):</span>
+<span id="cb7-3"><a href="#cb7-3"></a>        <span class="cf">return</span> <span class="va">self</span>.slot[key]</span>
+<span id="cb7-4"><a href="#cb7-4"></a>    <span class="co"># A[&#39;key&#39;] = B</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>    <span class="kw">def</span> <span class="fu">__setitem__</span>(<span class="va">self</span>,key,that):</span>
+<span id="cb7-6"><a href="#cb7-6"></a>        <span class="va">self</span>.slot[key] <span class="op">=</span> that <span class="op">;</span> that._use() <span class="op">;</span> <span class="cf">return</span> <span class="va">self</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a>    <span class="co"># A &lt;&lt; B ~&gt; A[B.val] = B</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a>    <span class="kw">def</span> <span class="fu">__lshift__</span>(<span class="va">self</span>,that):</span>
+<span id="cb7-9"><a href="#cb7-9"></a>        <span class="va">self</span>[that.val] <span class="op">=</span> that <span class="op">;</span> <span class="cf">return</span> <span class="va">self</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a>    <span class="co"># A // B</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a>    <span class="kw">def</span> <span class="fu">__floordiv__</span>(<span class="va">self</span>,that):</span>
+<span id="cb7-12"><a href="#cb7-12"></a>        <span class="cf">return</span> <span class="va">self</span>.push(that)</span></code></pre></div>
+<h3 id="стековые-операции-на-nest">стековые операции на <code>nest[]</code></h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>    <span class="co"># ( -- A )</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>    <span class="kw">def</span> push(<span class="va">self</span>,that):</span>
+<span id="cb8-3"><a href="#cb8-3"></a>        <span class="va">self</span>.nest.append(that) <span class="op">;</span> that._use() <span class="op">;</span> <span class="cf">return</span> <span class="va">self</span></span></code></pre></div>
+<h3 id="формирование-графа-фреймов-на-python">формирование графа фреймов на Python</h3>
+<p>Для работы с сетями ([[граф]]ами) фреймов в исходном коде на Python достаточно только переопределенных операторов:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>hello <span class="op">=</span> Frame(<span class="st">&#39;hello&#39;</span>) <span class="op">;</span> hello <span class="op">//</span> hello <span class="op">;</span> hello <span class="op">&lt;&lt;</span> hello</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="bu">print</span>(hello)</span></code></pre></div>
+<pre><code>&lt;frame:hello&gt; @7f1569ddec88
+    hello = &lt;frame:hello&gt; @7f1569ddec88 _/
+    &lt;frame:hello&gt; @7f1569ddec88 _/
+</code></pre>
+<h1 id="gnu-make">GNU Make</h1>
+<p>Компилировать любой проект руками -- занятие неблагодарное и весьма утомительное, даже если в проекте всего один файл с исходным кодом программы, а тем более когда файлов становится больше. Для каждого из них надо каждый раз вручную набивать команды компиляции и линковки. Обычно принято всю работу поручать [[IDE]], но возникает грандиозная проблема -- если все настройки компиляции хранить в IDE-проекте, все разработчики должны работать не только в одной и той же среде, но иногда даже иметь одинаковую версию. Для группы из нескольких разработчиков такой подход еще допустим, но мы говорим не только о Linux-проектах их сотен разработчиков со своими привычками, но и о разработке кросс-платформенных программ, которые должны компилироваться и работать более чем под тремя операционными системами, и десятком различных аппаратных архитектур (включая микроконтроллеры).</p>
+<p>К счастью, для задачи автоматического запуска компиляторов и утилит при изменении файлов проектов уже более 50 лет существует стандартная утилита <code>make</code>, которая поставляется в комплекте с любым компилятором, или (в случае Linux) устанавливается отдельным пакетов дистрибутива. Создав в каталоге проекта обычный текстовый файл <code>Makefile</code>, вы можете всего в десяток строчек прописать все <em>зависимости между файлами</em>, и как вызывать каждую утилиту или компилятор при их изменении.</p>
+<p>Если запустить</p>
+<pre><code>$ make
+</code></pre>
+<p>то программа попытается найти файл с именем по умолчание Makefile в текущем каталоге и выполнить инструкции из него. Если в текущем каталоге есть несколько мейкфайлов, то можно указать на нужный вот таким образом:</p>
+<pre><code>make -f MyMakefile
+</code></pre>
+<h2 id="секции-makefile">секции Makefile</h2>
+<p>Код для <code>make</code> имеет два типа:</p>
+<ol>
+<li>определение переменных через <code>=</code></li>
+<li>правила</li>
+</ol>
+<p>Правило имеет вид</p>
+<pre><code>цель : [источник ...]
+&lt;tab&gt; команда
+...
+</code></pre>
+<ul>
+<li>цель -- файл(ы) который <em>должен быть обновлен при изменении даты редактирования</em> любого из</li>
+<li>файлов-источников с помощью</li>
+<li>команд отделенных слева символов табуляции (НЕ пробелами -- настройте ваш редактор, чтобы не заменял)</li>
+</ul>
+<p>Каждый раз, когда вы меняете программу, изменяя хотя бы один из файлов-источников, <code>make</code> отследит зависимости, и выполнит заданные команды, чтобы обновить все файлы-цели.</p>
+<p>Другое применение -- в обратную сторону: в источники прописываются файлы, необходимые для сборки проекта (компиляции программы), и если таких файлов не существует, они будут созданы соответствующими правилами.</p>
+<h2 id="переменные">переменные</h2>
+<p>Переменные позволяют назначить символьным именам значения, которые могут поставляться:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>A = B</code></td>
+<td>присвоение значения, подставляемого вместо имени переменной <code>$(A)</code></td>
+</tr>
+<tr class="even">
+<td><code>C =</code></td>
+<td>обнуление переменной, вместо имени переменной будет подставляться пустая строка</td>
+</tr>
+<tr class="odd">
+<td><code>D ?= E</code></td>
+<td>условное назначение, если <code>D</code> ранее не была определена</td>
+</tr>
+</tbody>
+</table>
+<p><em>Переменные могут быть заданы</em> не только в <code>Makefile</code>, но и <em>в командной строке при вызове <code>make</code></em>. Так вы можете передавать настройки сборки проекта, например можно явно указать, для какой платы вы собираете свою игру:</p>
+<pre><code>~/itstep$ make HW=rpi3 mygame
+</code></pre>
+<h2 id="переменные-подстановки-целиисточников">переменные подстановки цели/источников</h2>
+<p>Эти встроенные переменные используются почти в каждом правиле <code>make</code>, так как запуск компилятора делается по одному и тому же шаблону для совершенно разных файлов:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>$@</code></td>
+<td>цель</td>
+</tr>
+<tr class="even">
+<td><code>$&lt;</code></td>
+<td>первый источник</td>
+</tr>
+<tr class="odd">
+<td><code>$^</code></td>
+<td>все источники</td>
+</tr>
+<tr class="even">
+<td><code>$?</code></td>
+<td>измененные источники</td>
+</tr>
+</tbody>
+</table>
+<h2 id="стандартные-переменные">стандартные переменные</h2>
+<p>Некоторым переменным приписано определенное значение</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>CC</code></td>
+<td>команда запуска компилятора Си</td>
+</tr>
+<tr class="even">
+<td><code>CXX</code></td>
+<td>команда запуска компилятора С++</td>
+</tr>
+<tr class="odd">
+<td><code>LD</code></td>
+<td>линкер</td>
+</tr>
+<tr class="even">
+<td><code>CFLAGS</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>CXXFLAGS</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>LDFLAGS</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>MAKE</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="типовые-переменные-в-проектах">типовые переменные в проектах</h2>
+<h3 id="каталоги">каталоги</h3>
+<pre><code>MODULE = $(notdir $(CURDIR))
+
+CWD = $(CURDIR)
+GZ  = $(CWD)/gz
+TMP = $(CWD)/tmp
+SRC = $(TMP)/src
+</code></pre>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>MODULE</code></td>
+<td>модуль -- имя текущего каталога\проекта</td>
+</tr>
+<tr class="even">
+<td><code>CWD</code></td>
+<td>корневой каталог проекта из которого вызывается <code>make</code></td>
+</tr>
+<tr class="odd">
+<td><code>GZ</code></td>
+<td>каталог для архивов исходного кода</td>
+</tr>
+<tr class="even">
+<td><code>TMP</code></td>
+<td>временный каталог, используемый при сборке из исходников</td>
+</tr>
+<tr class="odd">
+<td><code>SRC</code></td>
+<td>сюда распаковываются исходники программных пакетов</td>
+</tr>
+</tbody>
+</table>
+<h2 id="разбор-примера-makefile-используемого-в-buildroot">разбор примера <code>Makefile</code> используемого в [[Buildroot]]</h2>
+<pre><code>## Makefile
+# комментарий
+
+.PHONY: os dirs gz
+
+## по умолчанию при запуске `make` срабатывает самое первое правило
+## для явного запуска используйте команду `make os`
+
+os: dirs gz
+
+## прописываем набор переменных для пакетов
+
+# версия
+
+BR_VER = 2019.02.4
+
+# полное название пакета с версией
+
+BR     = buildroot-$(BR_VER)
+
+# имя файла с архивом исходного кода
+
+BR_GZ  = $(BR).tar.gz
+
+## набор типовых переменных предпочтительнее определять в самом начале `Makefile`
+
+MODULE = $(notdir $(CURDIR))
+
+CWD = $(CURDIR)
+GZ  = $(CWD)/gz
+TMP = $(CWD)/tmp
+SRC = $(TMP)/src
+
+# готовим набор каталогов
+
+dirs:
+    mkdir -p $(GZ) $(TMP) $(SRC)
+
+# загрузка архивов, необходимых для сборки системы
+    
+gz: $(GZ)/$(BR_GZ)
+
+# при отсутствии архива создаем его загрузкой с сети
+# версия подставляется через переменную
+
+$(GZ)/$(BR_GZ):
+    wget -c -O $@ https://github.com/buildroot/buildroot/archive/$(BR_VER).tar.gz
+</code></pre>
 <h1 id="открытые-материалы-учебной-лаборатории">открытые материалы учебной лаборатории</h1>
 <h2 id="компьютерной-академии-шаг-самара">компьютерной академии ШАГ (Самара)</h2>
 <p><a href="https://samara.itstep.org/">https://samara.itstep.org/</a></p>
 <p>[[интерн-обучение]]</p>
 <p>[[положение об учебной лаборатории]]</p>
+<p><img src="logo.png" /></p>
+<h2 id="введение-в-учебный-курс">[[Введение в учебный курс]]</h2>
 <h3 id="модульная-система-обучения">[[модульная система обучения]]</h3>
 <ul>
 <li>[[разработка бизнес-систем]]
@@ -89,8 +639,10 @@
 <li>[[GNU Autotools]]</li>
 </ul></li>
 <li>[[установка Linux]]</li>
-<li>[[Язык C/C++]]
+<li>[[Язык C/C++ для встраиваемых систем]]
 <ul>
+<li>[[Язык ANSI C]]</li>
+<li>[[Язык C++|Язык Cpp]]</li>
 <li>[[фрейморк Qt embedded]]</li>
 <li>[[wxWidgets]]</li>
 </ul></li>
@@ -106,11 +658,21 @@
 <ul>
 <li>[[Python]]
 <ul>
-<li>[[синтаксический анализ]]</li>
-<li>[[создание языков программирования]]</li>
-<li>[[машинное обучение]]</li>
+<li>[[семантический ИИ]]
+<ul>
+<li>[[Skynet]]</li>
 </ul></li>
+<li>[[разработка игр]]</li>
+<li>[[машинное обучение]]</li>
+<li>[[Flask]] backend: веб-приложения на сервере</li>
+</ul></li>
+<li>[[создание языков программирования]]
+<ul>
+<li>[[синтаксический анализ текстовых данных]]</li>
+<li>язык [[metaL]] и [[метапрограммирование]]</li>
+<li>[[mex]] реализация (микро)интерпретатора динамического языка программирования</li>
 <li>[[разработка компиляторов на LLVM]]</li>
+</ul></li>
 <li>[[ООП и система программирования Smalltalk]]</li>
 </ul></li>
 <li>[[разработка игр]]
@@ -122,13 +684,16 @@
 <li>[[Linux]]
 <ul>
 <li>[[администрирование рабочей станции /Debian/]]</li>
-<li>[[подготовка технических изданий в системе LaTeX]]</li>
-<li>[[встраиваемый Linux]]
+<li>[[встраиваемый embedded Linux|embedded Linux]]
+<ul>
+<li>[[собираем собственную Linux-систему]]
 <ul>
 <li>[[Buildroot]]</li>
+</ul></li>
 <li>[[OpenWrt]]</li>
 <li>[[Raspberry Pi]]</li>
 </ul></li>
+<li>[[подготовка технических изданий в системе LaTeX]]</li>
 </ul></li>
 <li>[[робототехника и мехатроника]]
 <ul>
@@ -154,8 +719,9 @@
 </ul></li>
 <li>[[управление процессом разработки]] аппаратного и программного обеспечения
 <ul>
-<li>[[Redmine]]</li>
-<li>[[Bugzilla]]</li>
+<li>[[система контроля версий Git]]</li>
+<li>[[Redmine]] управление задачами</li>
+<li>[[Bugzilla]] отслеживание багов</li>
 <li>[[PLM/PDM-системы]]</li>
 </ul></li>
 <li>[[Интернет вещей]] и [[промышленная автоматика]]
@@ -163,13 +729,599 @@
 <li>[[PLC и языки МЭК]]</li>
 <li>[[Умный дом]]</li>
 </ul></li>
+<li>Языки программирования
+<ul>
+<li>[[Язык C/C++ для встраиваемых систем]]</li>
+<li>[[Rust]]</li>
+<li>[[Python]]</li>
+<li>[[платформа .NET и язык C#]] /cert/</li>
+<li>[[Java]]</li>
+<li>[[Prolog]]</li>
+<li>[[Smalltalk]]</li>
+</ul></li>
 </ul>
-<h3 id="raspberry-pi-3-b">Raspberry Pi 3 B+</h3>
-<h2 id="raspberry-pi-3-b-1">Raspberry Pi 3 B</h2>
+<h2 id="kmsdrm">KMS/DRM</h2>
+<ul>
+<li><a href="https://events.static.linuxfound.org/sites/events/files/slides/brezillon-drm-kms.pdf">https://events.static.linuxfound.org/sites/events/files/slides/brezillon-drm-kms.pdf</a></li>
+</ul>
+<h2 id="krr-knowledge-representation--reasoning">KRR: Knowledge Representation &amp; Reasoning</h2>
+<h3 id="представление-знаний-и-автоматические-рассуждения">Представление знаний и автоматические рассуждения</h3>
+<h1 id="kconfig">Kconfig</h1>
+<ul>
+<li><a href="https://www.kernel.org/doc/Documentation/kbuild/kconfig-language.txt">https://www.kernel.org/doc/Documentation/kbuild/kconfig-language.txt</a>
+<ul>
+<li><a href="https://opensource.com/article/18/10/kbuild-and-kconfig">https://opensource.com/article/18/10/kbuild-and-kconfig</a></li>
+</ul></li>
+</ul>
+<h2 id="linuxsdl">Linux/SDL</h2>
+<p>[[KMS/DRM]]</p>
+<h1 id="linux">Linux</h1>
+<ul>
+<li>[[Linux]]
+<ul>
+<li>[[администрирование рабочей станции /Debian/]]</li>
+<li>[[встраиваемый Linux]]
+<ul>
+<li>[[собираем собственную Linux-систему]]
+<ul>
+<li>[[Buildroot]]</li>
+</ul></li>
+<li>[[OpenWrt]]</li>
+<li>[[Raspberry Pi]]</li>
+</ul></li>
+<li>[[подготовка технических изданий в системе LaTeX]]</li>
+</ul></li>
+</ul>
+<pre><code>.PHONY: all clean
+
+all: ./mex$(EXE)
+    ./mex$(EXE)
+    
+C = mex.cpp
+H = mex.hpp
+
+./mex$(EXE): $(C) $(H)
+    $(CXX) $(CXXFLAGS) -o $@ $(C) $(L)
+</code></pre>
+<h2 id="openwrt">OpenWrt</h2>
+<h3 id="установка-базовой-системы-сборки">установка базовой системы сборки</h3>
+<pre><code>project$ mkdir gz ; wget -c -O gz/openwrt-18.06.4.tar.gz https://github.com/openwrt/openwrt/archive/v18.06.4.tar.gz
+project$ tar zx &lt; gz/openwrt-18.06.4.tar.gz
+project$ ln -fs openwrt-18.06.4 openwrt
+</code></pre>
+<h3 id="установка-пакетов-расширений">установка пакетов расширений</h3>
+<pre><code>project$ cd openwrt
+openwrt$ ./scripts/feeds update -a
+openwrt$ ./scripts/feeds install -a
+</code></pre>
+<h3 id="преконфигурация-для-проекта">преконфигурация для проекта</h3>
+<pre><code>project$ mkdir firmware
+project$ echo &quot;CONFIG_VERSION_NUMBER=\&quot;`date +%y.%m.%d`\&quot;&quot; &gt;&gt; openwrt/.config
+project$ echo &quot;CONFIG_VERSION_CODE=\&quot;`git rev-parse --short=4 HEAD`\&quot;&quot; &gt;&gt; openwrt/.config
+project$ echo &quot;CONFIG_BINARY_FOLDER=\&quot;`pwd`/firmware\&quot;&quot; &gt;&gt; openwrt/.config
+project$ echo &quot;CONFIG_DOWNLOAD_FOLDER=\&quot;`pwd`/gz\&quot;&quot; &gt;&gt; openwrt/.config
+project$ cat config.br &gt;&gt; openwrt/.config
+</code></pre>
+<h3 id="файл-с-полезными-опциями">файл с полезными опциями</h3>
+<p><code>config.br</code></p>
+<pre><code># задание целевой системы
+
+CONFIG_TARGET_ramips=y
+CONFIG_TARGET_ramips_rt305x=y
+
+# \ эти опции необходимы для сборки, не отключать
+CONFIG_TARGET_ROOTFS_INITRAMFS=y
+TARGET_INITRAMFS_COMPRESSION_LZMA=y
+CONFIG_TARGET_ROOTFS_SQUASHFS=y
+CONFIG_PACKAGE_kmod-fs-squashfs=y
+CONFIG_KERNEL_DEVTMPFS=y
+CONFIG_KERNEL_DEVTMPFS_MOUNT=y
+# /
+
+# настройки для soft realtime и необслуживаемой системы
+
+CONFIG_KERNEL_SWAP=n
+
+# в логе загрузки полезно иметь метки времени
+CONFIG_KERNEL_PRINTK_TIME=y
+
+# отключение роутинга и ip.v6
+
+CONFIG_KERNEL_IP_MROUTE=n
+CONFIG_KERNEL_IPV6_MROUTE=n
+CONFIG_IPV6=n
+
+# опции сборки gnu toolchain (кросс-компилятора)
+
+CONFIG_DEVEL=y
+CONFIG_TOOLCHAINOPTS=y
+CONFIG_EXTRA_BINUTILS_CONFIG_OPTIONS=&quot;--disable-nls --enable-lto&quot;
+CONFIG_EXTRA_GCC_CONFIG_OPTIONS=&quot;--disable-nls --enable-lto&quot;
+CONFIG_GCC_USE_GRAPHITE=y
+CONFIG_GDB=y
+CONFIG_MAKE_TOOLCHAIN=n
+
+# настройки метаинформации по устройству
+
+CONFIG_IMAGEOPT=y
+CONFIG_VERSIONOPT=y
+CONFIG_VERSION_FILENAMES=y
+CONFIG_VERSION_CODE_FILENAMES=y
+CONFIG_VERSION_DIST=&quot;myLinux&quot;
+CONFIG_VERSION_REPO=&quot;&quot;
+CONFIG_VERSION_HOME_URL=&quot;http://samara.itstep.ru&quot;
+CONFIG_VERSION_MANUFACTURER=&quot;supervasia&quot;
+CONFIG_VERSION_MANUFACTURER_URL=&quot;http://github.com/supervasia/myLinux&quot;
+CONFIG_VERSION_PRODUCT=&quot;noname Router&quot;
+CONFIG_VERSION_BUG_URL=&quot;supervasia@nomail.com&quot;
+
+CONFIG_KERNEL_BUILD_USER=&quot;supervasia&quot;
+CONFIG_KERNEL_BUILD_DOMAIN=&quot;nomail.com&quot;
+
+# включаем пакетную систему и веб-интерфейс
+
+CONFIG_PACKAGE_opkg=y
+CONFIG_PACKAGE_uci=y
+
+# несколько пакетов для примера
+
+CONFIG_PACKAGE_gdbserver=m
+CONFIG_PACKAGE_binutils=m
+
+# поддержку WiFi вкомпиливаем в основную систему, а не в пакетах
+# т.е. без сети пакеты не поставить
+
+CONFIG_PACKAGE_wireless-tools=y
+CONFIG_PACKAGE_kmod-rt2800-soc=y
+CONFIG_PACKAGE_wpa-cli=y
+CONFIG_PACKAGE_wpa-supplicant=y
+CONFIG_PACKAGE_wpad-mini=y
+CONFIG_PACKAGE_iwinfo=y
+
+</code></pre>
+<h3 id="сборка">сборка</h3>
+<pre><code>project$ cd openwrt
+openwrt$ make menuconfig
+openwrt$ make
+</code></pre>
+<p>[[openwrt/Makefile]]</p>
+<h1 id="prolog">Prolog</h1>
+<h2 id="магия-унификации">магия унификации</h2>
+<ul>
+<li>[unimag] <a href="https://github.com/ponyatov/AoP/releases/latest">https://github.com/ponyatov/AoP/releases/latest</a></li>
+</ul>
+<p>У меня большой опыт в программировании на большинстве императивных языков, но я до сих пор не могу найти книгу или хотя бы вводное руководство, позволяющее мне понять язык [[Prolog]]. У меня есть почти все хорошо известные книги [bratko,km,aop] как в бумаге, так и в электронной форме, и я множество раз пытался осваивать все учебники, которые мне попадались.</p>
+<p>Я чувствую, что во всех них потеряна какая-то ключевая идея, и самое страшное -- это обработка списков, как в синтаксисе языка, так и в аду рекурсии, выносящем мозг. Что что-то удерживает [[Prolog]] на плаву в течение этих десятилетий, что может быть очень полезно в императивном программировании в качестве встроенного движка логического вывода (такие вещи, как решатель зависимостей при конфигурации ядра [[Linux]] -- очень и очень странно, что [[Prolog]] не используется вместо [[Kconfig]] и [[Buildroot]]-подобных инструментов).</p>
+<ul>
+<li>[norswap] <a href="https://norswap.com/prolog-served-dry/">https://norswap.com/prolog-served-dry/</a></li>
+<li>[AoP] Leon Sterling, Ehud Shapiro <a href="https://github.com/ponyatov/AoP/releases/download/130819/TheArtofProlog2nd.pdf">The Art of Prolog</a></li>
+<li>[km] Клоксин У., Меллиш К. <a href="https://github.com/ponyatov/AoP/releases/download/130819/ClocksinMellish.pdf">Программирование на языке Пролог</a></li>
+<li>[bratko] Иван Братко <a href="https://github.com/ponyatov/AoP/releases/download/130819/bratko.djvu">Программирование на языке Пролог для искусственного интеллекта</a></li>
+</ul>
+<h1 id="python">Python</h1>
+<p>[[настройка venv для Python]]</p>
+<h1 id="qemu">QEMU</h1>
+<h2 id="windows-в-эмуляции">Windows в эмуляции</h2>
+<ul>
+<li><a href="https://habr.com/ru/post/276637/">https://habr.com/ru/post/276637/</a></li>
+</ul>
+<h2 id="raspberry-pi-3-b">[[Raspberry Pi]] 3 B</h2>
+<p><img src="rpi3b.jpg" /></p>
+<h3 id="raspberry-pi-3-b-1">Raspberry Pi 3 B+</h3>
 <h2 id="raspberry-pi">Raspberry Pi</h2>
-<h3 id="raspberry-pi-3-b-2">[[Raspberry Pi 3 B+]]</h3>
+<p><a href="https://ru.wikipedia.org/wiki/Raspberry_Pi">https://ru.wikipedia.org/wiki/Raspberry_Pi</a></p>
+<p><code>Raspberry Pi</code> (['rɑːzbərɪ paɪ], Ра́збери па́й) - одноплатный компьютер размером с банковскую карту, <em>изначально разработанный как бюджетная система для обучения информатике</em>, но позже получивший более широкое применение и известность.</p>
+<ul>
+<li>Это дешево 3-4 тыс.рублей, [[Raspberry Pi 4 Model B]] -- 6 тыс. на <a href="https://www.aliexpress.com/af/raspbery-pi-4-model-b.html?SearchText=raspbery+pi+4+model+b">AliExpress</a></li>
+<li>Легкодоступен в местных магазинах <a href="https://www.dns-shop.ru/product/3c9c87fe88973330/mikrokomputer-raspberry-pi-3-model-b/">DNS</a> <a href="https://www.chipdip.ru/catalog-show/single-board-computers?locid=samara-michurina-46&amp;gq=raspberry+pi">chip-dip</a> и для заказа на <a href="https://www.aliexpress.com/af/raspbery-pi-4-model-b.html?SearchText=raspbery+pi">AliExpress</a></li>
+<li>Плата Raspberry Pi чуть больше кредитной карты, потребляет не более 2А 5В = 10 Вт</li>
+<li>Вы можете установить на этот микрокомпьютер [[Linux]] и использовать его для чего угодно
+<ul>
+<li>AOSP [[Android]] и Windows 10</li>
+</ul></li>
+<li>Универсальность -- наиболее часто из этого устройства делают медиа-центр, [[игровую машину|Игровая консоль]], сервер для хранения файлов, маленький веб-сервер. Также очень популярны решения интернета вещей.</li>
+<li>Выпускается множество дополнительных аппаратных модулей (но нужно очень аккуратно их подбирать по совместимости и поддержке вашей операционной системой)</li>
+<li><strong>Raspberry Pi был разработан чтобы научить студентов программировать</strong>. Много людей пишут код на [[Python]], но на самом деле для Pi доступны большинство существующих языков программирования и библиотек.</li>
+<li>Из-за популярности и раскрученного бренда <strong>в сети существует огромное сообщество пользователей, и разработчиков</strong> которые делают как программы, так и дополнительное "железо". Вы всегда можете найти информацию о любой проблеме, программные проблемы обнаруженные в прошике, часто закрываются за несколько часов.</li>
+<li>Вы можете играть в любые старые игры с помощью эмуляторов приставок, причем можете использовать устройство как полноценную приставку с джойстиками и без клавиатуры, а мощности устройства хватит на все.
+<ul>
+<li>Поскольку устройство было разработано как учебная платформа, вы можете писать игры сами, на этом сайте доступно множество информации чтобы разобраться самостоятельно, или вы <a href="https://samara.itstep.org">можете прийти к нам на учебные курсы</a> чтобы следать это легко и быстро.</li>
+<li>"Малина" является полноценным, и достаточно мощным универсальным компьютером (особенно последние модели), поэтому <em>вы можете использовать ее для обучения всем видам программирования, не только прикладного и сетевого, но и системного</em> (разработка операционных систем, компиляторов, встраиваемых систем, устройств и серверов "Интернета вещей", [[сборка собственных вариантов Linux|Buildroot]], и т.д.)</li>
+</ul></li>
+</ul>
+<p><strong>Не берите китайские клоны типа Banana/Orange в качестве <em>первой</em> системы</strong> -- они несовместимы аппаратно, имеют другое железо и процессор, и значительные отличия в его поддержке на уровне ядра ОС. Поддержка "китайца" чаще всего оказывается на уровне плинтуса -- еще не закрыта даже половина проблем с драйверами, а разработчик уже выкакывает следующую модель, еще более глючную. Погнавшись за низкой ценой, вы можете столкнуться с тем, что вам самим придется исправить код ядра операционной системы, чтобы плата заработала правильно. Но вы или кто-то другой этого сделать не сможете, потому что документации не существует, или она засекречена под <a href="https://ru.wikipedia.org/wiki/Соглашение_о_неразглашении">NDA</a>. С другой стороны, для старых китайских моделей сообщество чаще всего исправило большинство косяков, и их вполне можно использовать для узких задач, проверив насколько хорошо поддерживается конкретная модель и функция, на форумах.</p>
+<h3 id="raspberry-pi-3-b-2">[[Raspberry Pi 3 B]]</h3>
+<h3 id="raspberry-pi-4-model-b">[[Raspberry Pi 4 Model B]]</h3>
+<h1 id="rust">Rust</h1>
+<ul>
+<li>перевод <strong>The Rust Programming Language</strong> <a href="https://rurust.github.io/rust_book_ru/">https://rurust.github.io/rust_book_ru/</a></li>
+<li>оригинал <a href="https://doc.rust-lang.org/book">The Rust Programming Language</a></li>
+</ul>
+<p>Язык перспективен для программирования встраиваемых систем низшего уровня на микроконтроллерах ARM [[Cortex-M]] (прежде всего [[STM32]]), так как он статически компилируемый, имеет более высокий уровень чем С++, и прежде всего предоставляет <em>автоматическое управление памятью</em> <strong>без сборщика мусора</strong>.</p>
+<h1 id="sdl">SDL</h1>
+<h2 id="базовая-библиотека-графики-и-вводавывода-для-разработки-игр">Базовая библиотека графики и ввода/вывода для разработки игр</h2>
+<p>Библиотека SDL/[[SDL2]] обеспечивает вашим программам базовые возможности работы с графикой, джойстиками, звуком и сетью. Дополнительные модули библиотеки предоставляют декодирование графических форматов, и вывод текстов используя TTF шрифты.</p>
+<ul>
+<li><a href="http://sdl.beuc.net/sdl.wiki/SDL_envvars">http://sdl.beuc.net/sdl.wiki/SDL_envvars</a></li>
+</ul>
+<h3 id="установка-под-linux">Установка под Linux</h3>
+<pre><code>$ sudo apt install libsdl2-dev libsdl2-image-dev
+</code></pre>
+<h3 id="установка-под-windows">Установка под Windows</h3>
+<p>сами себе злобные буратины</p>
+<h1 id="skynet">Skynet</h1>
+<h3 id="which-programming-language-will-be-best-for-making-skynet-and-why">Which programming language will be best for making Skynet, and why?</h3>
+<p><a href="https://qr.ae/TWrO0g">https://qr.ae/TWrO0g</a></p>
+<h3 id="какой-язык-программирования-лучше-всего-подойдет-для-создания-skynet-и-почему">Какой язык программирования лучше всего подойдет для создания Skynet и почему?</h3>
+<p>Для Skynet определенно необходима модель вычислений, специально предназначения для приложений ИИ (искусственного интеллекта). Последние 50 лет для таких задач [[Lisp]] и [[Prolog]] рассматривались как готовые к использованию языки и абстрактные машины. Но они показали очень скромные результаты.</p>
+<p>Я думаю, что первое, что мы должны добавить в современную разработку программного обеспечения, -- это инструменты, предназначенные для [[представления знаний и логического вывода на них|KRR]]. Я чувствую недостаток таких инструментов в повседневной работе (во встроенной разработке), когда не могу описать свои идеи на популярных языках программирования, потому что в этих языках нет средств, позволяющих мне описать концепции программного обеспечения, которое я делаю.</p>
+<p>Также я считаю, что <strong>языки программирования вообще не нужны</strong>. Их цель описать <em>структуру</em> и <em>поведение</em> программ, но на самом деле нам нужна только некоторая структура данных, чтобы сделать это. Неважно, какие инструменты мы используем для построения этой структуры -- будет ли это язык программирования, какие-то визуальные инструменты, или другая [[структура исполняемых данных|EDS]], которая создает и преобразует такие структуры.</p>
+<p>Если вы хотите заняться исследованиями в этом направлении, прежде всего посмотрите на [[фреймовую модель Марвина Мински|Frame]]. Я играл с ней некоторое время, и она показывает себя как нативное представление атрибутной грамматики и методов ООП. Так что уже сейчас мы можем представить любую программу на любом существующем языке программирования, используя фреймы. Кроме того, вам понадобится некоторая абстрактная машина для запуска этих [[графов|граф]] объектов/фреймов -- некоторый <strong>интерпретатор</strong>, написанный на любом ходовом языке (реализации), который вы предпочитаете (я использую [[Python]]). Именно <em>интерпретатор способен сделать эту структуру данных исполняемой</em>. Возможно, нам нужен какой-то инструмент, чтобы сохранять эти структуры между несколькими запусками интерпретатора, и разделять их между многими вычислительными узлами. Определенно, это должна быть какая-то объектная база данных, возможно, [[ZopeDB]] является одним из кандидатов для среды [[Python]].</p>
+<p>Еще штука, которую мы должны иметь в системе, -- это механизм логического вывода, который способен анализировать фреймовые графы, и некоторый инструмент для визуализации этих структур, чтобы они были удобны для человека. Я рассматриваю <a href="http://yieldprolog.sourceforge.net/">Yield Prolog</a> как основу для такого механизма логического вывода, но не факт, что модель языка Prolog способна делать то, что требуется для [[семантического ИИ|семантический ИИ]]. Я хочу особенно отметить, и отчетливо разделить [[семантический искусственный интеллект|семантический ИИ]] и [[машинное обучение]], которое сейчас популярно. Они отличаются так же, как аналитическая математика на основе формул от численных расчетов. Фактически, <em>ML это численные методы</em>. Они работают, но имеют те же недостатки, что и численная модель по сравнению с идеальными решениями аналитической математики.</p>
+<p>И, наконец, последним шагом является создание Интернета следующего поколения, который действует как глобально распределенная сеть знаний, и использует не тексты и графические глюки, как сейчас Web x.0, а имеет чистую форму представления знаний как для хранения и для поиска по нему в семантической сети. Также такой Интернет должен визуализировать эти знания для представления как в удобочитаемой для человека, так и в машино-исполняемой форме (генерация исходного кода, документация, концептуальные схемы,..)</p>
+<p>Вся модель представления знаний потроена как направленный [[граф]] объектов, наследованных от базового класса [[Frame]]:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">class</span> Frame:</span>
+<span id="cb24-2"><a href="#cb24-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,V):</span>
+<span id="cb24-3"><a href="#cb24-3"></a>        <span class="va">self</span>.<span class="bu">type</span> <span class="op">=</span> <span class="va">self</span>.__class__.<span class="va">__name__</span>.lower()</span>
+<span id="cb24-4"><a href="#cb24-4"></a>        <span class="va">self</span>.val  <span class="op">=</span> V</span>
+<span id="cb24-5"><a href="#cb24-5"></a>        <span class="va">self</span>.slot <span class="op">=</span> {}</span>
+<span id="cb24-6"><a href="#cb24-6"></a>        <span class="va">self</span>.nest <span class="op">=</span> []</span>
+<span id="cb24-7"><a href="#cb24-7"></a>        <span class="va">self</span>.ref  <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb24-8"><a href="#cb24-8"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb24-9"><a href="#cb24-9"></a>        <span class="cf">return</span> <span class="va">self</span>.dump()</span>
+<span id="cb24-10"><a href="#cb24-10"></a>    <span class="kw">def</span> dump(<span class="va">self</span>,depth<span class="op">=</span><span class="dv">0</span>,prefix<span class="op">=</span><span class="st">&#39;&#39;</span>):</span>
+<span id="cb24-11"><a href="#cb24-11"></a>        tree <span class="op">=</span> <span class="va">self</span>._pad(depth) <span class="op">+</span> <span class="va">self</span>.head(prefix)</span>
+<span id="cb24-12"><a href="#cb24-12"></a>        <span class="cf">if</span> <span class="kw">not</span> depth: Frame._dumped <span class="op">=</span> []</span>
+<span id="cb24-13"><a href="#cb24-13"></a>        <span class="cf">if</span> <span class="va">self</span> <span class="kw">in</span> Frame._dumped: <span class="cf">return</span> tree <span class="op">+</span> <span class="st">&#39; _/&#39;</span></span>
+<span id="cb24-14"><a href="#cb24-14"></a>        <span class="cf">else</span>: Frame._dumped.append(<span class="va">self</span>)</span>
+<span id="cb24-15"><a href="#cb24-15"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="va">self</span>.slot:</span>
+<span id="cb24-16"><a href="#cb24-16"></a>            tree <span class="op">+=</span> <span class="va">self</span>.slot[i].dump(depth<span class="op">+</span><span class="dv">1</span>,prefix<span class="op">=</span>i<span class="op">+</span><span class="st">&#39; = &#39;</span>)</span>
+<span id="cb24-17"><a href="#cb24-17"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="va">self</span>.nest:</span>
+<span id="cb24-18"><a href="#cb24-18"></a>            tree <span class="op">+=</span> j.dump(depth<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb24-19"><a href="#cb24-19"></a>        <span class="cf">return</span> tree</span>
+<span id="cb24-20"><a href="#cb24-20"></a>    <span class="kw">def</span> head(<span class="va">self</span>,prefix<span class="op">=</span><span class="st">&#39;&#39;</span>):</span>
+<span id="cb24-21"><a href="#cb24-21"></a>        <span class="cf">return</span> <span class="st">&#39;</span><span class="sc">%s</span><span class="st">&lt;</span><span class="sc">%s</span><span class="st">:</span><span class="sc">%s</span><span class="st">&gt; @</span><span class="sc">%x</span><span class="st">&#39;</span> <span class="op">%</span> (prefix,<span class="va">self</span>.<span class="bu">type</span>,<span class="va">self</span>._val(),<span class="bu">id</span>(<span class="va">self</span>))</span>
+<span id="cb24-22"><a href="#cb24-22"></a>    <span class="kw">def</span> _pad(<span class="va">self</span>,depth):</span>
+<span id="cb24-23"><a href="#cb24-23"></a>        <span class="cf">return</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span> <span class="op">+</span> <span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span> <span class="op">*</span> depth</span>
+<span id="cb24-24"><a href="#cb24-24"></a>    <span class="kw">def</span> _val(<span class="va">self</span>):</span>
+<span id="cb24-25"><a href="#cb24-25"></a>        <span class="cf">return</span> <span class="bu">str</span>(<span class="va">self</span>.val)</span>
+<span id="cb24-26"><a href="#cb24-26"></a>    </span>
+<span id="cb24-27"><a href="#cb24-27"></a>    <span class="kw">def</span> <span class="fu">__getitem__</span>(<span class="va">self</span>,key):</span>
+<span id="cb24-28"><a href="#cb24-28"></a>        <span class="cf">return</span> <span class="va">self</span>.slot[key]</span>
+<span id="cb24-29"><a href="#cb24-29"></a>    <span class="kw">def</span> <span class="fu">__setitem__</span>(<span class="va">self</span>,key,that):</span>
+<span id="cb24-30"><a href="#cb24-30"></a>        <span class="va">self</span>.slot[key] <span class="op">=</span> that <span class="op">;</span> <span class="cf">return</span> <span class="va">self</span></span>
+<span id="cb24-31"><a href="#cb24-31"></a>    <span class="kw">def</span> <span class="fu">__lshift__</span>(<span class="va">self</span>,that):</span>
+<span id="cb24-32"><a href="#cb24-32"></a>        <span class="va">self</span>[that.val] <span class="op">=</span> that <span class="op">;</span> <span class="cf">return</span> <span class="va">self</span></span>
+<span id="cb24-33"><a href="#cb24-33"></a>    <span class="kw">def</span> <span class="fu">__floordiv__</span>(<span class="va">self</span>,that):</span>
+<span id="cb24-34"><a href="#cb24-34"></a>        <span class="cf">return</span> <span class="va">self</span>.push(that)</span>
+<span id="cb24-35"><a href="#cb24-35"></a>    </span>
+<span id="cb24-36"><a href="#cb24-36"></a>    <span class="kw">def</span> push(<span class="va">self</span>,that):</span>
+<span id="cb24-37"><a href="#cb24-37"></a>        <span class="va">self</span>.nest.append(that) <span class="op">;</span> <span class="cf">return</span> <span class="va">self</span></span></code></pre></div>
+<ul>
+<li><strong>type</strong> хранит класс объекта (фрейма); строки используются не только в демонстрационных целях, но также библиотека парсеров [[PLY]] требует наличие этого поля как индикатора типа [[токена|токен]]</li>
+<li><strong>val</strong> это значение (value): любой [[скалярный тип]] данных, доступный в вашем [[языке реализации|язык реализации]]</li>
+<li><strong>slot</strong> [[ассоциативный массив]] со строковыми ключами, который привязывает имена как это делают слоты Мински -- имя слота указывает на другой экземпляр класса Frame, формируя сеть фреймов (направленный граф).</li>
+<li><strong>nest</strong> значит вложенный (nested): я добавил это поле так как оно <strong>необходимо для хранения любых упорядоченных данных</strong>, including branches of AST parsing trees (see any computer language design tutorial)</li>
+<li><strong>ref</strong> это счетчик ссылок, который необходим для управления динамической памятью, если ваш язык реализации не поддерживает [[автоматическую память]] (например [[С++|Cpp]])</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>hello <span class="op">=</span> Frame(<span class="st">&#39;hello&#39;</span>) <span class="op">;</span> hello <span class="op">//</span> hello <span class="op">;</span> hello <span class="op">&lt;&lt;</span> hello</span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="bu">print</span>(hello)</span></code></pre></div>
+<p>Как видите, <em>это не язык программирования, а универсальная форма данных</em>, которая формируется и работает в любой существующей среде программирования, скажем, [[Python]]. Эта структура данных может быть выполнена интерпретатором, поэтому я назвал эту модель [[EDS: Исполняемая структура данных|EDS]].</p>
+<p>Такая [[KRR]]-структура является родной для любого языка / среды программирования, она проста в обработке, и легко читаема человеком даже в виде текстового дампа (дерево):</p>
+<pre><code>&lt;frame:hello&gt; @7f1569ddec88
+    hello = &lt;frame:hello&gt; @7f1569ddec88 _/
+    &lt;frame:hello&gt; @7f1569ddec88 _/
+</code></pre>
+<p>Я не буду писать здесь учебник (на самом деле буду, если вам это интересно), но я должен обосновать модель, предлагаемую как ответ на тему вопроса на Quora. Эта фреймовая модель Марвина Мински расширена упорядочением</p>
+<ul>
+<li>она [[униформна|uniform]], и</li>
+<li>нацелена прежде всего на реализацию систем [[семантического ИИ|семантический ИИ]] и [[KRR]].</li>
+</ul>
+<p>Ваша [[EDS]]-структура данных может трансформировать другую структуру, и даже саму себя, так что [[метапрограммирование]] является одном из основых методов. В зависимости от того, как вы реализуете ваш [[EDS-интерпретатор]], вы не ограничены только парадигмой [[императивного программирования|императивное программирование]]. Система программирования будет намного мощнее со [[структурным сопоставлением шаблонов|сопоставление шаблонов]], и Prolog-подобной [[унификацией|унификация]] (см. [[YieldProlog]] выше).</p>
+<h2 id="vagrant">Vagrant</h2>
+<p>средство диагностики проблем с управлением памятью в программах на C/C++:</p>
+<ul>
+<li>[[утечка памяти]]</li>
+<li>[[null pointer exception]]</li>
+<li>исключения доступа к памяти</li>
+</ul>
+<p>реализуется в виде библиотеки, подключаемой к программе при линковке, отслеживает все выделения и освобождения памяти, и пишет подробный лог с диагностикой неосвобожденных областей кучи</p>
+<h3 id="yieldprolog">Yield<code>Prolog</code></h3>
+<p>Существует малоизвестная методика программирования на [[Python]], позволяющая бесшовно интегрировать модули, решающие логические задачи аналогично языку [[Prolog]], добавляя их в любые программы на языках [[Python]], [[C#]],..</p>
+<ul>
+<li><a href="http://yieldprolog.sourceforge.net/tutorial1.html">http://yieldprolog.sourceforge.net/tutorial1.html</a></li>
+</ul>
+<h2 id="baremetal-программирование">baremetal программирование</h2>
+<p>Разработка программного обеспечения без использования операционных систем -- вся программа представляет собой (обычно монолитный) кусок машинного кода, упакованный в загрузочной образ [[firmware]] для определенной "железки". Весь ввод/вывод, управление памятью и режимами процессора делается напрямую на уровне аппаратуры и машинного кода, а ПО построено по архитектуре [[libOS]]/[[unikernel]].</p>
+<h2 id="встраиваемый-embedded-linux">встраиваемый embedded Linux</h2>
+<p>embedded Linux предназначен для использования в качестве операционной системы для следующих классов устройств:</p>
+<ul>
+<li>[[Промышленный компьютер]]</li>
+<li>[[Потребительский одноплатник]]
+<ul>
+<li>[[Raspberry Pi]], клоны [[Orange Pi]] [[Banana Pi]]</li>
+</ul></li>
+<li>[[SOHO роутер]]
+<ul>
+<li>на базе SoC [[RT5350F]]</li>
+</ul></li>
+<li>[[Автомобильный компьютер]]</li>
+<li>[[Цифровая медиа-система]]</li>
+<li>[[Игровая консоль]]</li>
+</ul>
+<p><strong>emLinux</strong> отличается от обычных дистрибутивов [[Linux]] общего назначения тем, что заточен под выполнение конкретных узких задач, и зачастую не имеет системы пакетов, и состоит из монолитной прошивки небольшого объема (размер Flash-памяти на некоторых устройствах начинается всего с 8Мб).</p>
+<p>Другое отличие -- чаще всего emLinux предназначен для запуска на платформах [[ARM]]/[[Cortex-A]] и [[MIPS]], для персональных копьютеров общего назначения на x86/amd64 процессорах практически не используется. Единственное обоснованное применение emLinux на ПК -- использование в качестве специализированной прошивки для компьютеров, применямых для управления технологическими установками, или для refubrished ноутбуков и старых ПК которые не тянут современный дистрибутив.</p>
+<p>Для установки классических дистрибутивов применяются инсталляторы. Для установки, а если точнее <strong>сборки встраиваемого Linux</strong> используются системы сборки, самая простая из которых -- [[Buildroot]]. Ключевая особенность сборки emLinux и программирования для него -- обязательное применение [[кросс-компилятор]]а. Система сборки обеспечивает выбор целевой платформы и конкретной платы (если она поддерживается сообществом разработчиков), сборку кросс-компилятора, ядра, системных библиотек, и набора выборанных пакетов ПО, включаемых в прошивку.</p>
+<h3 id="i486">i486</h3>
+<p>Минимально доступный x86 процессор для современных средств разработки и ядра Linux:</p>
+<ul>
+<li>i486 DX (с сопроцессором плавающей точки)</li>
+</ul>
+<p>К сожалению, более ранние варианты уже не поддерживаются, поэтому если вам хочется использовать совсем старый ноутбук или коллекционный брендовый компьютер Samsung -- вам не повезло.</p>
+<p>Также за бортом остаются платы [[PC104]] на процессорах Vortex 486SX, типа <a href="https://ipc2u.ru/search/?query=VSX">VSX</a>.</p>
+<h1 id="язык-metal">Язык <code>metaL</code></h1>
+<p><em>Язык <code>metaL</code> не предназначен для программирования</em>, это [[DML]]/[[DDL]] для формирования и модификации [[вычислительных структур|Skynet]] на основе расширенной [[фреймовой модели Марвина Мински|фреймы Марвина Мински]], и управлении [[EDS]]-интерпретатором. Другими словами, <strong><code>metaL</code> это язык описания данных</strong>. Что это за данные, и что вы с ними будете делать, это уже ваше решение. Единственное накладываемое ограничение: каждый объект структуры данных может быть только фреймом -- экземпляром базового класса [[Frame]], или любого класса, который его наследует.</p>
+<p><code>metaL</code> изначально задумывался как очень минималистичный язык для разработки программ для встраиваемых систем, используя [[метапрограммирование]] как основной подход к разработке ПО. Поэтому у него и такое название -- <strong>meta</strong>программирование и <strong>L</strong>anguage (язык), и одновременно отсылка к [[baremetal]].</p>
+<p>Поскольку для метапрограммирования необходима [[языковая система]] со встроенной поддержкой [[гомоиконичности|гомоиконичность]], была проделана определенная поисковая исследовательская работа по выбору модели данных и архитектуры [[абстрактной машины|абстрактная машина]], которая бы использовала структуры данных, одновременно хорошо понятные человеку, и способные описать (и синтезировать) исходный код программ на [[языках Си и С++|Cpp]], обязательных к применению для встраиваемых систем при работе в группе. Из гомоиконичных языков наиболее известен [[Lisp]], но списковое представление исходного кода показалось ужасно громоздким. В поиске удалось выйти на точную формулировку, какое направление информатики наиболее точно соответствует требуемой прикладной области -- [[Knowledge Representation &amp; Reasoning|KRR]], и универсальную модель [[фреймов|фреймы Марвина Мински]], хорошо подходящую как к [[моделированию программного обеспечения|моделирование программного обеспечения]] так и задачам [[семантического ИИ|семантический ИИ]].</p>
+<h2 id="абстрактная-машина-языка-metal">Абстрактная машина языка <code>metaL</code></h2>
+<p>Упрощенная реализация на [[Python]] доступна в подкаталоге проекта <a href="https://github.com/ponyatov/itstep/tree/master/metaL">https://github.com/ponyatov/itstep/tree/master/metaL</a></p>
+<p>[[Абстрактная машина|абстрактная машина]] языка <code>metaL</code> состоит из следующих компонентов:</p>
+<ul>
+<li>базовый класс [[Frame]] и его производные классы формируют базу для реализации [[гомоиконичной|гомоиконичность]] языковой системы</li>
+<li>[[стек]] данных <code>S</code> хранит данные в процессе вычислений (экземпляр [[Stack]])</li>
+<li>[[словарь]] <code>W</code> содержит соответствия между именами и исполняемыми структурами данных (экземпляр [[Dict]])</li>
+<li>команды абстрактной машины [[Cmd]]
+<ul>
+<li>выполняют операции над несколькими верхними элементами стека <code>S</code>,</li>
+<li>включают операции обмена данными между стеком <code>S</code> и словарем <code>W</code>,</li>
+<li>операции ввода/вывода,</li>
+<li>интерфейс с операционной системой,</li>
+<li>классы-обертки для нескольких распространенных библиотек, и</li>
+<li>произвольные пользовательские расширения, написанные на языке реализации ВМ</li>
+</ul></li>
+<li>веб-интерфейс реализован на фреймворке [[Flask]], обеспечивает визуализацию, командную консоль, и пользовательский интерфейс в браузере -- обеспечивает мультиплатформенность, возможность запуска системы на арендованном [[VDS]]-сервере, и возможность создания коммерческих приложений.</li>
+</ul>
+<pre><code>#include &quot;mex.hpp&quot;
+
+int main(int argc, char *argv[]) {
+    cout &lt;&lt; argv[0] &lt;&lt; endl;
+}
+</code></pre>
+<pre><code>#ifndef _H_MEX
+#define _H_MEX
+
+#include &lt;iostream&gt;
+
+using namespace std;
+
+#endif // _H_MEX
+</code></pre>
+<h1 id="mex">mex</h1>
+<p><strong>M</strong>icro <strong>Ex</strong>ecutor -- реализация микроинтерпретатора динамического языка программирования на [[C++|Cpp]]</p>
+<ul>
+<li>парсер исходного кода реализован на [[Ragel]]
+<ul>
+<li>файлы исходного кода открываются через механизм [[mmap]]</li>
+</ul></li>
+<li>виртуальная машина -- стековая, аналогична языку [[Форт]], но построена на объектах</li>
+<li>автоматическое управление памятью ([[сборка мусора]]) на алгоритме [[refcounting]]</li>
+</ul>
+<h3 id="файлы">файлы</h3>
+<p>полная версия см. <a href="https://github.com/ponyatov/itstep/tree/master/mex">подкаталог на github</a>, ниже по ссылкам приведены описания некоторых частей исходного кода с комментариями:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>[[mex.hpp]]</td>
+<td>заголовочный файл</td>
+</tr>
+<tr class="even">
+<td>[[mex.cpp]]</td>
+<td>ядро интерпретатора</td>
+</tr>
+<tr class="odd">
+<td>[[mex.ragel]]</td>
+<td>парсер синтаксиса</td>
+</tr>
+<tr class="even">
+<td>[[Makefile.mex]]</td>
+<td>скрипты сборки</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mmap-файлы-отображаемые-в-память">mmap: файлы, отображаемые в память</h2>
+<ul>
+<li><a href="https://habr.com/ru/post/55716/">https://habr.com/ru/post/55716/</a></li>
+</ul>
+<p>При работе с файлами данных значительных объемов применение mmap может дать значительный прирост производительности по сравнению с обычным буферизованным вводом/выводом. Особенно вкусно mmap выглядит для реализации [[персистентных хранилищ данных|persistent storage]] при использовании в комплексе с [[аллокаторами|аллокатор]].</p>
+<p><strong>Принцип работы mmap -- содержимое файла отображается на участок оперативной памяти процесса</strong> (через использование средств операционной системы, в частности страничной адресации памяти аналогично работе [[swap]]).</p>
+<h2 id="openwrt-makefile">openwrt Makefile</h2>
+<pre><code>
+OPENWRT_VER = 18.06.4
+OPENWRT     = openwrt-$(OPENWRT_VER)
+OPENWRT_GZ  = $(OPENWRT).tar.gz
+
+.PHONY: all dirs gz src config build clean distclean
+
+all: build
+
+CWD = $(CURDIR)
+GZ  = $(CWD)/gz
+
+dirs:
+    mkdir -p $(GZ) $(TMP) $(SRC)
+
+gz: $(GZ)/$(OPENWRT_GZ)
+
+$(GZ)/$(OPENWRT_GZ):
+    wget -c -O $@ https://github.com/openwrt/openwrt/archive/v$(OPENWRT_VER).tar.gz
+
+src: $(OPENWRT)/README
+$(OPENWRT)/README: $(GZ)/$(OPENWRT_GZ)
+    tar zx &lt; $&lt; &amp;&amp; touch $@
+    cd $(OPENWRT) ; ./scripts/feeds update -a
+    cd $(OPENWRT) ; ./scripts/feeds install -a
+
+config: $(OPENWRT)/.config
+$(OPENWRT)/.config: $(OPENWRT)/README
+
+build: $(OPENWRT)/.config
+    cd $(OPENWRT) ; make menuconfig
+
+</code></pre>
+<h2 id="введение-в-учебный-курс-1">Введение в учебный курс</h2>
+<p>Этот набор учебных пособий направлен на то, чтобы дать вам некоторое представление что такое языки программирования (С++, C#, Java, Python..), как они возникли, как работают программы и какое программное обеспечение необходимо установить для создания собственных программ. Вы даже напишите свои собственные первые программы, которые могут работать под основными операционными системами: Windows и [[Linux]].</p>
+<p>Количество времени, которое вы должны проводить над каждым уроком или темой, не задается и не ограничивается -- продвигайтесь по материалу в удобном для вас темпе. Какие-то темы вы можете пройти поверхностно, другие вас заинтересуют настолько, что вы захотите нурнуть в них поглубже.</p>
+<h3 id="цели">Цели</h3>
+<p><strong>Кроме языка С++, рассматриваются общие темы программирования, а также алгоритмы и структуры данных</strong>. Традиционные учебники по С++ довольно хорошо учат основам языка программирования, но они часто не охватывают некоторые темы, считая их второстепенными для изучения языка. Например, в книгах пропущены разделы, посвященные стилю программирования, распространенным ошибкам, отладке, хорошим и плохим методам программирования, [[системам контроля версий|система контроля версий]] и [[тестированию|тестирование]]. В результате к тому времени, когда вы закончите книгу, вы поймете, как программировать на языке С++, но у вас будет куча вредных привычек, которые вернутся к вам позже -- как только вы попытаетесь работать с кем-то в группе, или наняться на работу.</p>
+<p>Одна из целей этого курса состоит в том, чтобы убедиться, что все эти второстепенные темы рассматриваются одновременно с изучением языка, в разделах, в которых имеет смысл их обсуждать. Когда вы закончите, вы будете не только знать, как программировать на С++, вы будете знать, как НЕ программировать на С++, что так же важно.</p>
+<p><strong>Обучение построено на множестве примеров</strong>. Большинство людей узнают из примеров столько же или даже больше, чем от чтения текста, последовательно объясняющего тему. В уроках вы найдете множество четких и кратких примеров, демонстрирующих, как применять изучаемые вами понятия. Мы также будем избегать (насколько это возможно) двойного зла:</p>
+<ul>
+<li>волшебных пассов руками, когда в интересах экономии бумаги отсутствует часть примера, и</li>
+<li>использования необъясненной новой концепции, когда она является основой примера, но при этом была использована без какого-либо упоминания о том, что это такое или как это работает.</li>
+</ul>
+<p>Оба эти недостатка учебников приводят к застреванию изучения, потому что ученик не может понять тему, и не может продолжить, так как следующие темы часто основываются на понимании предыдущих.</p>
+<p><strong>Обеспечивается тренировочная программа</strong>. Многие уроки и разделы будут содержать наборы упражнений, которые вы можете выполнить самостоятельно, а также решения. Вы можете сравнить свое решение с нашим, чтобы увидеть, что мы сделали по-другому, или, если вы застряли, как мы решили проблему. Затем вы можете вернуться назад и сфокусироваться на темах, над которыми вам нужно больше работать.</p>
+<p><strong>Самое главное: получайте удовольствие от программирования</strong>. Оно может быть очень увлекательным, и если вам скучно и неинтересно, вы не в том настроении, чтобы программировать. Утомленные или недовольные программисты делают намного больше ошибок, а отладка кода обычно занимает гораздо больше времени, чем правильное написание кода! Зачастую вы можете сэкономить время, если отвлекетесь, отдохнете и возвратитесь к проблеме позже. <em>Чтобы поддержать вас, мы построили часть курса на программировании игр</em>.</p>
+<p><strong>Работайте в команде</strong>. Промышленное коммерческое программирование почти всегда построено на командной работе, когда вы можете балансировать работу со своими коллегами, ускорять работу за счет параллельного программирования разных частей программной системы, и решать проблемы, с которыми вы сталкиваетесь, через общение.</p>
 <h2 id="игровая-консоль">Игровая консоль</h2>
-<p>Игровая консоль из [[Raspberry Pi 3 B+]] на базе серийного корпуса:</p>
+<p>Главной фишкой этой учебной программы является раздел [[Игровая консоль]] и связанные с ним [[embedded Linux]] и особенно [[собираем собственную Linux систему]]. Сейчас в ИТ-области активно развивается направление [[Интернет вещей]], в котором значительную роль играет именно [[Linux]] как одна из основных операционных систем. Мы не будем забираться слишком глубоко, но вы при желании сможете не только изучить [[Программирование игр]] используемое как привлекательная практическая область программирования, но и научиться собирать собственные Linux-системы для широко распространенной платформы [[Raspberry Pi]]. Кроме того, для Интернета вещей используется множество языков программирования, в качестве базовых были выбраны [[Python]] и [[C++|Cpp]], а затем мы сможете изучить языки для промышленного программирования [[Java]] и [[C#]] которые также используются в [[IoT: северная серверная]].</p>
+<h2 id="игровая-консоль-1">Игровая консоль</h2>
+<p>Игровая консоль из [[Raspberry Pi 3 B]] на базе серийного корпуса:</p>
+<ul>
+<li><a href="https://vk.com/@myironcomp-igrovaya-pristavka-na-raspberry-pi">Делаем игровую приставку на Raspberry Pi</a></li>
+<li><a href="https://youtu.be/VKt1gRIqQOc">https://youtu.be/VKt1gRIqQOc</a></li>
+<li><a href="https://www.youtube.com/watch?v=-a4vBo7xLO4">https://www.youtube.com/watch?v=-a4vBo7xLO4</a></li>
+</ul>
+<p>Идея консоли-эмулятора была развита дальше -- полноценная игровая платформа низшего ценового диапазона, специально предназначенная для обучения, на базе популярной аппаратной платформы, Linux &amp; OpenSource.</p>
+<ul>
+<li>пост на gamedev.ru <a href="https://gamedev.ru/code/forum/?id=246169">Raspberry Pi как игровая консоль (игры под нативный Linux)</a></li>
+</ul>
+<p>Кроме разработки собственно</p>
+<ul>
+<li>игр с использованием всех фишек, доступных на современных одноплатных компьютерах типа [[Raspberry Pi]],</li>
+<li>поставляемая сборка [[Linux]] является учебным пособием по созданию собственных специализированных [[embedded Linux]] систем, заточенных на определенные разработчиком задачи, и одновременно</li>
+<li>полноценной рабочей средой, позволяющих выполнять обычные для персонального компьютера задачи.</li>
+</ul>
+<p><img src="sneskit.png" /></p>
+<h1 id="интернет-вещей">Интернет вещей</h1>
+<p>Концепция интернета вещей (Internet of Things, сокращенно IoT) возникла в 1999 году. К 2010 году направление обросло разнообразными технологиями, получило практическое применение и с тех пор устойчиво развивается. По прогнозам предсказывали что в 2019 году произойдет слияние интернета вещей с несколькими ИТ-трендами. Искусственный интеллект, машинное обучение и распределенные вычисления, соединившись с IoT, откроют новые возможности и в ближайшие пять лет окажут серьезное влияние на рынок. По факту прогнозы оказались слишком оптимистичными, но тем не менее информационные технологии очень быстро движутся в этом направлении. В качестве примера можно привести массовую рекламу таких технологий как "Яндекс Алиса" и "Умный дом" (умный город), которые массово переходят из фазы из экспериментальных проектов в каждодневную жизнь.</p>
+<h2 id="что-же-такое-iot">Что же такое IoT?</h2>
+<p>Идея Internet of Things — во взаимодействии вещей с сервером и между собой, где участие человека сводится к минимуму. Например, счетчики электроэнергии, отсылающие показания в управляющую компанию; GPS-трекеры, отслеживающие движение такси и грузов; разнообразные фитнес-браслеты -- это все интернет вещей.</p>
+<h3 id="классическая-архитектура-интернета-вещей">Классическая архитектура интернета вещей</h3>
+<p>Классическая архитектура интернета вещей включает в себя:</p>
+<ul>
+<li><strong>South</strong> [[южная часть]] <em>IoT-устройства</em>. Они собирают показания с датчиков и выполняют физические действия. Могут быть персональными, носимыми и встроенными.</li>
+<li><strong>Gate</strong> <em>Шлюзы</em>, которые получают информацию от устройств и передают им команды выполнения действий. Как правило, представлены аппаратным маршрутизатором или программным обеспечением; используют разные протоколы.</li>
+<li><strong>Edge</strong> [[EDGE-сервер]]а находятся локально, максимально близко к группам IoT-устройств, и их задача -- быстро принимать решения и формировать управляющие команды, получаемые в результате первичной обработки данных с датчиков. Введение этого уровня необходимо из-за нестабильности работы сети, непредсказуемых задержках и разрывах передачи данных, и необходимости максимально быстрого принятия решения в проблемных и аварийных ситуациях.</li>
+<li><strong>North</strong> [[северная часть]] <em>Сервера или облачные сервисы</em>, где хранятся, обрабатываются и анализируются показания датчиков. Может быть реализован на базе виртуального сервера, реальной машины или через облако.</li>
+<li><strong>Client</strong> <em>Клиентская часть</em>, реализуется через десктопные, мобильные и веб-приложения. Обеспечивает доступ к данным устройств, наглядному представлению результатов анализа, обеспечивает мониторинг и оповещение.</li>
+</ul>
+<h3 id="распределение-языков-программирования">Распределение языков программирования</h3>
+<p>Для работы в области Интернета вещей необходимо знать одновременно несколько языков программирования и сопутствующих им стеков информационных технологий:</p>
+<ul>
+<li><p>чистый Си -- единственный способ программирования для IoT-устройств нижнего сегмента по стоимости и вычислительной мощности. Типичный узел IoT-сети -- необслуживаемое устройство на low-end микроконтроллере, подключенном к радиомодему или совмещенном с ним, имеет не более 20К(!) ОЗУ и батарейное питание малой емкости. Даже при наличии таких языков как [[Rust]] и [[C++]] они не применяются, так как требуется обеспечить прозрачность исходных кодов программ между разработчиками разной квалификации.</p></li>
+<li><p>применение [[C++]] начинается от уровня шлюзов и EDGE-серверов, иногда применяется на north side для нишевых продуктов и удешевления аренды вычислительных мощностей.</p></li>
+<li><p>[[Python]] применяется для прототипирования систем, программирования пользователем, и написания вспомогательных программ. Существует реализация языка [[uPython]] позволяющая использовать его на микроконтроллерах верхнего сегмента, но из-за соображения себестоимости и стабильности большого применения не нашел.</p></li>
+<li><p>для написания облачных платформ и обработки данных наиболее популярен [[Java]] в связке с [[SQL]] для баз данных [[Oracle]] и [[MS SQL]].</p></li>
+<li><p>необходимость знания [[C#]] возникает на уровне интеграции северной части с уже существующими информационными системами, и бизнес-системами построенными на технологиях Microsoft. В случае промышленных предприятий [[C#]] традиционно используется в системах АСУ верхнего уровня (SCADA), поэтому его нужно знать при разработке и внедрении систем промышленного [[IIoT]].</p></li>
+</ul>
+<h1 id="язык-c">Язык C++</h1>
+<h2 id="введение-в-учебный-курс-2">[[Введение в учебный курс]]</h2>
+<h3 id="компиляторы">Компиляторы</h3>
+<h2 id="основы-c">Основы C++</h2>
+<h3 id="структура-программы">Структура программы</h3>
+<h3 id="переменные-и-типы">Переменные и типы</h3>
+<h3 id="константы">Константы</h3>
+<h3 id="операторы">Операторы</h3>
+<h3 id="базовый-вводвывод">Базовый ввод/вывод</h3>
+<h2 id="структура-программы-1">Структура программы</h2>
+<h3 id="управляющие-структуры">Управляющие структуры</h3>
+<h3 id="функции">Функции</h3>
+<h3 id="перегрузка-и-шаблоны">Перегрузка и шаблоны</h3>
+<h3 id="видимость-имен">Видимость имен</h3>
+<h2 id="составные-типы-данных">Составные типы данных</h2>
+<h3 id="массивы">Массивы</h3>
+<h3 id="последовательности-симолов">Последовательности симолов</h3>
+<h3 id="указатели">Указатели</h3>
+<h3 id="динамическая-память">Динамическая память</h3>
+<h3 id="структуры-данных">Структуры данных</h3>
+<h3 id="другие-типы-данных">Другие типы данных</h3>
+<h2 id="классы">Классы</h2>
+<h3 id="классы-i">Классы (I)</h3>
+<h3 id="классы-ii">Классы (II)</h3>
+<h3 id="специальные-члены-класса">Специальные члены класса</h3>
+<h3 id="наследование-и-дружественность">Наследование и дружественность</h3>
+<h3 id="полиморфизм">Полиморфизм</h3>
+<h2 id="другие-фичи-языка">Другие фичи языка</h2>
+<h3 id="преобразования-типов">Преобразования типов</h3>
+<h3 id="исключения">Исключения</h3>
+<h3 id="директивы-препроцессора">Директивы препроцессора</h3>
+<h2 id="стандартная-библиотека-c">Стандартная библиотека C++</h2>
+<h3 id="вводвывод-на-файлах">Ввод/вывод на файлах</h3>
+<h2 id="stl-стандартная-библиотека-шаблонов">STL: Стандартная библиотека шаблонов</h2>
+<h3 id="итераторы">Итераторы</h3>
+<h3 id="коллекции">Коллекции</h3>
+<h3 id="обобщенные-алгоритмы">Обобщенные алгоритмы</h3>
+<h2 id="книги">Книги</h2>
+<ul>
+<li>Харви Дейтел, Пол Дейтел <strong>Как программировать на С++</strong> <a href="http://ijevanlib.ysu.am/wp-content/uploads/2018/03/deytel.pdf">PDF</a></li>
+<li>Андре Александреску <strong>Современное проектирование на C++</strong> <a href="https://rdita.kg/files/books/%D0%BE%D0%B8%D0%B2%D1%82/(C++)%20%D0%90%D0%BD%D0%B4%D1%80%D0%B5%D0%B9%20%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%D0%B5%D1%81%D0%BA%D1%83.%20%D0%A1%D0%BE%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BD%D0%B0%20%D0%A1++.pdf">PDF</a></li>
+</ul>
+<h3 id="online">online</h3>
+<ul>
+<li><a href="http://www.cplusplus.com/doc/tutorial/">http://www.cplusplus.com/doc/tutorial/</a></li>
+<li><a href="https://www.learncpp.com/">https://www.learncpp.com/</a></li>
+<li><a href="https://www.learn-cpp.org/">https://www.learn-cpp.org/</a></li>
+<li><a href="https://www.sololearn.com/Course/CPlusPlus/">https://www.sololearn.com/Course/CPlusPlus/</a></li>
+</ul>
+<h2 id="абстрактная-машина-языка-программирования">абстрактная машина языка программирования</h2>
+<p>Абстрактная машина языка программирования -- модель вычислений всего множества программ, написанных на этом языке. АМ это частный случай [[виртуальной машины|виртуальная машина]], неразрывно связанный с реализаций какого-либо языка программирования, и его [[семантикой|семантика]]. АМ определяется как некий виртуальный компьютер, [[архитектура]] и [[система команд]] которого обычно слишком сложны для физической реализации в кремнии, но максимально близки к языку программирования, для описания которого она предназначена.</p>
+<p>Набор команд АМ включает такие относительно высокоуровневые операции, как выделение областей памяти, ее чтение/запись с контролем типов, создание классов (для динамических языков), инициализация объектов, вызов методов, организация каналов передачи данных, передача сообщений, реализация структур управления типа циклов и условных переходов, управление процессами/потоками и т.д.</p>
+<p>Задачи абстрактной машины:</p>
+<ul>
+<li>определение [[семантики|семантика]] языка программирования</li>
+<li>реализация языка программирования
+<ul>
+<li>в форме интерпретатора, реализующего абстрактную машину,</li>
+<li>образцовой реализации компилятора, или</li>
+<li>вычислительной модели с заданным поведением</li>
+</ul></li>
+</ul>
+<p>Для некоторых абстрактных машин, определенных математически, возможен аналитический анализ программ:</p>
+<ul>
+<li>[[машина Тьюринга]]</li>
+<li>[[лямбда-исчисление]]</li>
+</ul>
+<p>Другие широко известные абстрактные машины:</p>
+<ul>
+<li>[[стековая машина языка Форт]]</li>
+<li><a href="https://ru.wikipedia.org/wiki/MIX">MIX</a> и <a href="https://ru.wikipedia.org/wiki/MMIX_(компьютер)">MMIX</a> обобщенная модель [[RISС]]-компьютера, используемая в [[книгах Доналда Кнута|Donald Knuth]]</li>
+<li><a href="https://ru.wikipedia.org/wiki/Parrot">Parrot</a> абстрактная машина языка Perl</li>
+<li><a href="https://ru.wikipedia.org/wiki/Common_Language_Runtime">CLR</a> машина платформы [[.NET]]</li>
+<li><a href="https://ru.wikipedia.org/wiki/Java_Virtual_Machine">JVM</a> виртуальная машина [[Java]]</li>
+<li><a href="https://ru.wikipedia.org/wiki/LLVM">LLVM</a> низкоуровневая модель RISC-машины для С-подобных языков программирования</li>
+</ul>
+<h2 id="гомоиконичность">гомоиконичность</h2>
+<p>В гомоиконичном языке программирования первичное представление программ является одновременно структурой данных, описанной в примитивных типах самого языка. Это делает [[метапрограммирование]] проще, чем на языке без этого свойства, поскольку <strong>код одновременно рассматривается как данные</strong>: [[рефлексия]] в языке (чтение структуры программы во время выполнения) основана на единой, однородной структуре, и не нужно обрабатывать несколько различных конструкций, которые возникают в сложном синтаксисе. Говоря иначе, <em>гомоиконичность — это когда исходный код программы пишется как базовая структура данных и язык программирования знает, как получить к ней доступ</em>.</p>
+<ul>
+<li><a href="https://ru.wikipedia.org/wiki/Гомоиконичность">https://ru.wikipedia.org/wiki/Гомоиконичность</a></li>
+<li><a href="https://vk.com/@lambda_brain-homoiconicity">https://vk.com/@lambda_brain-homoiconicity</a>
+<ul>
+<li><a href="https://vk.com/@lambda_brain-why-are-harmful-universal-ides">Почему вредны универсальные IDE</a></li>
+<li><a href="https://vk.com/wall-152484379_20">Подсветка синтаксиса в редакторах кода — добро или зло?</a></li>
+</ul></li>
+</ul>
+<h1 id="граф-не-дракула">Граф (не Дракула)</h1>
+<p><a href="https://ru.wikipedia.org/wiki/Граф_(математика)">https://ru.wikipedia.org/wiki/Граф_(математика)</a></p>
+<p><strong>Граф</strong> — абстрактный математический объект, представляющий собой множество <strong>вершин</strong> графа и набор <strong>рёбер</strong>, соединяющих вершины. Аналогично, структура данных, максимально часто используемая и в бизнесе, и в программировании, поэтому хотя бы немного знать [[методы на графах]] обязательно любому программисту. Например, за множество вершин можно взять множество городов, обслуживаемых некоторой транспортной, а за множество рёбер взять регулярные рейсы этой компании между городами.</p>
+<p>Для разных областей применения виды графов могут различаться наличием направленности, ограничениями на количество связей, особенностями структуры, и дополнительными данными о вершинах и рёбрах. Многие структуры, представляющие практический интерес в математике и информатике, могут быть представлены графами. Например, строение Интернета можно смоделировать при помощи <em>ориентированного графа</em>, в котором вершины — страницы сайтов, а дуги (<em>ориентированные рёбра</em>) — гиперссылки.</p>
+<h4 id="математическое-определение">математическое определение</h4>
+<p><strong>Граф</strong>, или <strong>неориентированный граф</strong> <code>G</code> — это упорядоченная пара <code>G:=(V,E)</code>, где <code>V</code> — непустое множество <strong>вершин</strong>, или <strong>узлов</strong>, а <code>E</code> — множество <em>пар вершин</em>, называемых <strong>рёбрами</strong>.</p>
+<ul>
+<li>неориентированный граф <img src="norgraph.png" /></li>
+<li>с пронумерованными вершинами <img src="numgraph.png" /></li>
+<li>ориентированный граф -- для ребер задано направление обхода <img src="orgraph.png" /></li>
+</ul>
 <h2 id="интерн-обучение">интерн-обучение</h2>
 <p>Интернатура -- метод обучения, традиционно применяемый в одной из самых сложных и ответственных областей знаний: медицине. Его применение обусловлено тем, что это единственный способ обеспечить реальное обучение, когда <em>знания передаются в процессе совместной практической работы</em> с опытными наставниками.</p>
 <p>В случае обучения техническим специальностям (в т.ч. в ВУЗах) наоборот применяются <em>лекции и лабораторные работы -- самый неэффективный способ обучения</em>. Практические занятия хорошо подходят для закрепления теоретического материала, но полностью оторваны от реальности. Студент не может понять, зачем в учебном плане стоит та или иная тема, что автоматически приводит к психологической блокировке по принципу “сдать и забыть”.</p>
@@ -180,9 +1332,204 @@
 <p>Осуществимым вариантом является работа учебной лаборатории в формате Hacker Space со свободным (платным) посещением. По похожей модели в Самаре работают коворкинги, типа YellowRockets <a href="http://yellowrockets.com/cw/">http://yellowrockets.com/cw/</a> сдавая стол и стул с оплатой от 5 тыс.рублей в месяц. В случае хакспейса/лаборатории ситуация несколько другая -- на специалиста дополнительно ложится обучение интернов. Заинтересовать фрилансера просто наличием стула не получится, так как в большинстве случаев для работы достаточно ноутбука и мобильного интернета или WiFi. Определенную значимость имеет возможность передачи знаний, и для достаточно узкого набора специальностей, связанных с разработкой для мобильных и встраиваемых систем -- наличие подготовленного рабочего места с инструментом и расходниками.</p>
 <p>Для фрилансеров есть заинтересованность в наличии регулярной группы, в которой можно перераспределять работу по необходимости -- в этом случае можно брать более “тяжелые” заказы.</p>
 <p>Для функционирования лаборатории критичным является наличие нескольких штатных сотрудников, совместителей или фрилансеров-резидентов, которые могут брать на себя обязанности по обеспечению функционирования лаборатории в регулярном режиме -- обеспечить доступ (по списку), поддерживать оборудование (при его наличии) в работоспособном состоянии, и т.п. административно-организационные и учебные задачи.</p>
+<h1 id="метапрограммирование">метапрограммирование</h1>
+<p><a href="https://ru.wikipedia.org/wiki/Метапрограммирование">https://ru.wikipedia.org/wiki/Метапрограммирование</a></p>
+<p>Метапрограммирование — вид программирования, связанный с созданием программ, которые порождают другие программы как результат своей работы, либо программ, которые меняют себя во время выполнения. Это позволяет применять автоматизацию программирования, в результате получать программы при меньших затратах времени и усилий на кодирование, чем если бы программист писал их вручную целиком, улучшить свойства кода (размер и быстродействие), и (самое главное) применять программирование на уровне прикладных моделей, в частности <a href="https://ru.wikipedia.org/wiki/Разработка,_управляемая_моделями">MDP</a>.</p>
+<p>Также, в языковых системах, поддерживающих [[гомоиконичность]], возможно применение сложных методов автоматического программирования, таких как [[трансформация программ]], [[синтез кода]], автоматический [[рефакторинг]], [[генерация документации]], и т.п.</p>
+<h3 id="настройка-venv-для-python">настройка venv для Python</h3>
+<p>Для каждого проекта настраивается своя изолированная Python-среда, содержащая интерпретатор и сторонние библиотеки:</p>
+<pre><code>$ cd ~/project
+$ python3 -m venv .
+$ . bin/activate
+(project)$ pip install -U pip
+(project)$ pip install -U flask ply ...
+(project)$ pip freeze &gt;&gt; requirements.txt
+</code></pre>
+<p>при клонировании / git pull существующего проекта</p>
+<pre><code>(project)$ pip install -U -r requirements.txt
+</code></pre>
+<p>Затем нужно настроить отдельный интерпретатор в вашей IDE. Для Eclipse это делается в свойствах проекта по * <code>rms &gt; Properties &gt; PyDev interpreter</code></p>
+<ul>
+<li><code>click here to configure interpreter not listed</code></li>
+<li><code>open interpreter preferences page</code></li>
+<li><code>browse for python.exe</code>, укажите файл <code>project/bin/python3</code></li>
+<li><code>interpeter name</code> укажите в формате <code>&lt;project&gt;_py3</code> в частности <code>itstep_py3</code></li>
+<li><code>pythonpath &gt; select all</code></li>
+<li><code>itstep_py3 &gt; Apply and Close</code></li>
+<li><code>PyDev interpreter &gt; Interpreter &gt; itstep_py3 &gt; Apply and Close</code></li>
+</ul>
+<p>допишите в [[.gitignore|gitignore]]:</p>
+<pre><code>bin/
+lib/
+lib64
+share/
+pyvenv.cfg
+</code></pre>
 <h2 id="разработка-встраиваемых-систем">разработка встраиваемых систем</h2>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=LE0XiGywYmE">https://www.youtube.com/watch?v=LE0XiGywYmE</a></li>
+</ul>
+<h1 id="разработка-игр">разработка игр</h1>
+<p>Обычные курсы обучения программированию (особенно детей) проходят довольно бесцельно: придумываются простейшие задания на урок для объяснения синтаксиса, команд и операторов. В результате в конце обучения у обучающихся нет ничего конкретного, что можно было бы оценить, чем похвастаться и что проанализировать.</p>
+<p>Использование игрового подхода позволит значительно увеличить интерес к обучению, особенно если программы пишутся не для компьютера а для [["настоящей" игровой консоли|игровая консоль]], но требуется значительные усилия по подготовке рабочей среды, не только предоставляющией базовые функции IDE для редактиврования, компиляции и отладки кода, но и средства визуализации структур данных в программе, и игровых элементов.</p>
+<p>Среда [[Unity]] используемая чаще всего для курсов по разработке игр, слишком монструозная, не поддерживает множество аппаратных платформ, включая [[Raspberry Pi]], и требует мощного компьютера для запуска готовой игры (тяжелый рантайм и наличие аппаратного 3D GPU).</p>
+<p>Использование платформы [[Linux/SDL]] в качестве базовой системы позволяет писать игры для любой платформы, включая Windows, MacOS и (?)[[Android NDK]] -- библиотека [[SDL]] мультиплатформенная, работает на любой железке способной выводить графику, и включает все базовые компоненты, необходимые для создания игр. В процессе обучения прививается привычка писать переносимый код, который можно скомпилировать под все основные операционные системы.</p>
+<h2 id="расширение-buildroot-1">расширение Buildroot</h2>
+<p>Buildroot предоставляет хотя и большую но все же недостаточную базу для сборщиков кастомизированных Linux-систем. В его состав входит достаточно большой перечень пакетов, но как только вы попытаетесь например сделать минимульную среду разработки ПО непосредственно на устройстве (как это понадобилось нам), возникает проблема. Как второй пример можно привести отсутствие готовых рецептов сборки эмуляторов игровых консолей и старых компьютеров -- этот функционал хочется иметь на [[игровой консоли|игровая консоль]] в составе учебной прошивки, дергать микроскопические флешки туда/сюда неудобно, грозит потерей или поломкой.</p>
+<p><a href="https://github.com/buildroot/buildroot/blob/master/docs/manual/customize-outside-br.txt">Keeping customizations outside of Buildroot</a></p>
+<p>Как уже кратко упоминалось в [[структура каталога Buildroot]], вы можете разместить настройки проекта в двух местах:</p>
+<ul>
+<li>непосредственно в дереве файлов Buildroot, выделив собственную [[ветку разработки|git ветки]] в системе управления версиями, обновление до более новой версии Buildroot остается достаточно легким.</li>
+<li>вне дерева файлов Buildroot, используя механизм <code>br2-external</code>. Этот механизм позволяет хранить рецепты пакетов, драйвера платы и файлы конфигурации отдельно, но при этом их можно легко интегрировать в логику сборки. Это внешнее дерево в документации называется <code>br2-external tree</code>. В этом разделе объясняется, как использовать механизм <code>br2-external</code> и что предоставить в дереве <code>br2-external</code>.</li>
+</ul>
+<p>Можно указать Buildroot использовать одно или несколько деревьев <code>br2-external</code>, установив make-переменную [[BR2_EXTERNAL]], указав путь(и) используемого(-ых) дерева br2. Этот параметр можно передаать при любом вызове Buildroot <code>make</code>. Он автоматически сохраняется в скрытом файле <code>.br2-external.mk</code> в выходном каталоге. Благодаря этому нет необходимости передавать [[BR2_EXTERNAL]] при каждом вызове <code>make</code>. Однако его можно изменить в любое время, передав новое значение, и удалить, передав пустое значение.</p>
+<p>Путь к <code>br2-external</code> дереву файлов может быть как абсолютным, так и относительным. Если он передается как относительный путь, важно отметить, что он интерпретируется относительно основного исходного каталога Buildroot <code>buildroot-2019.02.4</code>, а не с выходным каталогом:</p>
+<ul>
+<li>абсолютный путь <code>/home/user/itstep/buildroot</code></li>
+<li>относительный <code>../buildroot</code></li>
+</ul>
+<p>Если вы используете внешнее дерево для Buildroot старых версий до 2016.11, вам необходимо преобразовать его, прежде чем использовать его с более новыми. Это может потребоваться, если вам приходится использовать процессорную плату, производитель которой предоставил устаревший [[BSP]]/[[SDK]].</p>
+<h4 id="пример-vendor-расширение">пример: vendor-расширение</h4>
+<p>Пакет разработки <code>itstep</code> добавляет множество пакетов к базовому комплекту Buildroot. В <code>/itstep/Makefile</code> вы можете найти вот такую строку:</p>
+<pre><code>cd $(BR) ; make BR2_EXTERNAL=$(CWD)/buildroot $(BR_DEFCONFIG)_defconfig
+</code></pre>
+<p>Если вам захочется добавить к нему еще одно собственное расширение, вы можете добавить своё внешнее дерево и дописать его через двоеточие:</p>
+<pre><code>cd $(BR) ; make BR2_EXTERNAL=$(CWD)/buildroot:$(CWD)/user $(BR_DEFCONFIG)_defconfig
+</code></pre>
+<h4 id="структура-внешнего-дерева">структура внешнего дерева</h4>
+<p>Дерево файлов <code>br2-external</code> должно содержать как минимум эти три файла, которые описаны далее:</p>
+<ul>
+<li><code>external.desc</code></li>
+<li><code>external.mk</code></li>
+<li><code>Config.in</code></li>
+</ul>
+<p>Помимо этих обязательных файлов, дополнительный контент, который может присутствовать в дереве включает каталоги <code>configs/</code> и <code>provides/</code>. Они также описаны далее.</p>
+<h4 id="externaldesc"><code>external.desc</code></h4>
+<p>Файл <code>external.desc</code> содержит имя и описание внешнего дерева.</p>
+<p>Формат этого файла основан на строках, каждая строка начинается с ключевого слова, за которым следует двоеточие и один или несколько пробелов, отделяющих значение, назначенное этому ключевому слову. В настоящее время распознаются два ключевых слова:</p>
+<ul>
+<li><code>name</code> обязательное поле, задает уникальное имя для внешнего дерева. Это имя должно использовать только символы ASCII в наборе <code>[A-Za-z0-9_]+</code> (латинские буквы, цифры и подчеркивание) ; любые другие символы запрещены. Buildroot устанавливает переменную <code>BR2_EXTERNAL_$(NAME)_PATH</code> помещая в нее абсолютный путь к дереву <code>br2-external</code>, чтобы вы могли использовать его для обращения к своему дереву. Соответственно в именах файлов и каталогов не допускается символов кириллицы, знаков препитания и спецсимволов. Эта переменная доступна как в [[Kconfig]], так что вы можете использовать ее для создания исходных файлов <code>Kconfig</code> (см. ниже), так и в <code>Makefile</code>, чтобы вы могли использовать ее для включения других <code>Makefile</code> (см. ниже), или для ссылок на другие файлы (например, файлы данных) из вашего дерева. <br> <br> Поскольку можно использовать несколько br2-external деревьев одновременно, это имя используется Buildroot для генерации переменных для каждого из этих деревьев. Это имя используется для идентификации вашего внешнего дерева br2, поэтому попробуйте придумать имя, которое действительно описывает ваше внешнее дерево br2, чтобы оно было относительно уникальным, чтобы оно не конфликтовало с другими именами, особенно если вы планируете каким-либо образом делиться своим деревом с третьими сторонами, или использовать внешние деревья от третьих лиц.</li>
+<li><code>desc</code> необязательное поле, предоставляет краткое описание для дерева br2-external. Оно должно умещаться в одну строку, в основном в свободной форме (см. ниже), и использоваться при отображении информации о внешнем дереве br2 (например, над списком файлов defconfig или в качестве подсказки в menuconfig); описание должно быть относительно коротким (40 символов -- хороший верхний предел), чтобы полностью умещаться в маленькое окно терминала в [[menuconfig]]. Описание доступно в переменной <code>BR2_EXTERNAL_$(NAME)_DESC</code>.</li>
+</ul>
+<p><code>BR2_EXTERNAL_$(NAME)_PATH</code> and <code>BR2_EXTERNAL_$(NAME)_DESC</code> доступны в файлах [[Kconfig]], make-файлах, и также экспортируются в среду, оставаясь доступными в [[post-build]], [[post-image]] и [[in-fakeroot]] скриптах.</p>
+<h4 id="externalmk-и-configin"><code>external.mk</code> и <code>Config.in</code></h4>
+<p>Эти файлы (могут быть пустыми) можно использовать для определения рецептов собственных пакетов (например, <code>foo/Config.in</code> и <code>foo/foo.mk</code>, см. [[структуру пакетов|структура пакета Buildroot]], входящих в состав самого Buildroot), других пользовательских параметров конфигурации или создания логики зависимостей между пакетами.</p>
+<p>Buildroot автоматически включает головной <code>Config.in</code> из каждого дерева br2-external, чтобы оно появилось в меню конфигурации [[menuconfig]] верхнего уровня, и включает <code>external.mk</code> из каждого дерева br2-external с остальной логикой сборки системы в make-файлах.</p>
+<p>Основное применение этих файлов -- хренение информации по рецепатм сборки пакетов. Рекомендованный способ включения пользовательских пакетов в <code>Config.in</code>:</p>
+<pre><code>source &quot;$BR2_EXTERNAL_VENDOR_PATH/package/package1/Config.in&quot;
+source &quot;$BR2_EXTERNAL_VENDOR_PATH/package/package2/Config.in&quot;
+</code></pre>
+<p>Затем рецепты сборки подключаются в <code>external.mk</code>:</p>
+<pre><code>include $(sort $(wildcard $(BR2_EXTERNAL_VENDOR_PATH)/package/*/*.mk))
+</code></pre>
+<h4 id="каталог-configs">каталог <code>configs/</code></h4>
+<p>One can store Buildroot defconfigs, allow them to be loaded with the normal <code>make &lt;name&gt;_defconfig</code> command.</p>
+<h4 id="каталог-provides">каталог <code>provides/</code></h4>
+<p>Для некоторых пакетов Buildroot предоставляет выбор между двумя (или более) вариантами пакетов-аналогов. Например, можно выбрать либо <code>libjpeg</code> или <code>jpeg-turbo</code>, либо другой выбор -- между <code>openssl</code> или <code>libressl</code>. Наконец, есть возможность выбрать один из известных, предварительно сконфигурированных наборов компиляторов или стандартных системных библиотек.</p>
+<h2 id="сборка-мусора">сборка мусора</h2>
+<ul>
+<li>[[refcounting]]</li>
+<li><a href="http://www.hboehm.info/gc/">BoehmGC</a></li>
+</ul>
+<p>В классическом С/C++ вся ответственность за управление динамическим выделением и освобождением памяти лежит полностью на программисте. В сложных программах, когда данные передаются между частями программы в виде сложных связанных структур, очень часто возникает runtime-ошибки известные как [[утечка памяти]] и исключения доступа.</p>
+<h1 id="семантический-ии">семантический ИИ</h1>
+<p>Семантический ИИ резко отличается от популярного [[Machine Learning]] приблизительно так же, как аналитические методы математики отличаются от численных. ML технологии построены исключительно на численных методах анализа входных данных, семантический ИИ работает в области [[KRR]]: Knowledge Representation &amp; Reasoning (представление знаний и автоматические рассуждения). Задачей семантического ИИ является <em>создание методов и инструментов для представления знаний</em> в виде сложных связанных структур данных, <em>и их обработки в символьной форме</em>.</p>
+<p>Широко распространенная области семантического ИИ, которая активно и массово используется несколько десятилетий -- системы символьных вычислений типа MathCAD, Wolfram [[Mathematica]], [[Maxima]], и т.д. Но сИИ не ограничивается этим, так как его область применения намного шире: представление и оперирование знаниями вообще, не только в любой науке, но и при разработке программного и аппаратного обеспечения.</p>
+<p>Очень длительное время в качестве платформы для реализации систем семантического ИИ, интеллектуальных и экспертных систем рассматривались языки [[Prolog]] и [[CLIPS]]. К сожалению их вычислительная модель настолько непривычна, и требует настоящего взлома сознания программиста, что эти языки давно стали эзотерическими и практически не используются.</p>
+<p>Два других подхода</p>
+<ul>
+<li>[[фреймы Марвина Мински]]</li>
+<li>[[YieldProlog]] наоборот очень близки к человеческому мышлению, склонному строить умозаключения в форме схем и [[графов|граф]] объектов и отношений между ними. Фреймовая модель на 146% ложится на объектно-ориентированное программирование, ставшее единственно-правильной религией, и на все современные императивные языки программирования. YP наоборот предлагает способ добавить к языкам типа [[Python]] относительно простой способ реализации механизмов языка [[Prolog]] -- унификацию и backtracking.</li>
+</ul>
+<h2 id="собираем-собственную-linux-систему">собираем собственную Linux систему</h2>
+<p>Основной частью проекта по адресу <a href="https://github.com/ponyatov/itstep">https://github.com/ponyatov/itstep</a> является система сборки [[embedded Linux]], основанная на [[Buildroot]], и предполагающая в качестве целевой аппаратной платформы [[игровую консоль|игровая консоль]] на основе [[Raspberry Pi 3 B]]. Так как проект задумывался как полноценный учебный курс по изучению разработки встраиваемых систем, было бы нелогично ограничиваться только ПК на базе архитектуры [[x86]]. С другой стороны, по уровню цена/возможности, и особенно по развитому сообществу пользователей и разработчиков -- кроме "малины" в ее оригинальных вариациях конкурентов просто нет.</p>
+<p>Другой целевой платформой все же оставлена возможность сборки под [[x86]] -- даже у тех людей, которые не связаны с ИТ напрямую, обычно есть возможность приобрести за минимальную цену, или найти у знакомых старое компьютерное железо, которое считается морально и технологически устаревшим. При этом оно все еще сохраняет работоспособность, и вполне может использоваться для работы, обучения, или для запуска простых игр. Естественно для такого старого железа не подходят современные версии ОС, и требуется определенная оптимизация и подбор программного обеспечения. Особенно полезен такой вариант для старых ноутбуков, все еще полезных благодаря мобильности (в пределах розетки).</p>
+<h3 id="установка">установка</h3>
+<p>Для установки системы сборки вам все же понадобится современный компьютер (или [[виртуальная машина]]) с установленным дистрибутивом [[Linux]]. В системе должны быть установлены некоторые пакеты разработки (команда установки пакетов для Debian Linux):</p>
+<pre><code>$ sudo apt install git wget build-essentials libncurses-dev
+</code></pre>
+<p>Вы можете скачать архив проекта <a href="https://github.com/ponyatov/itstep/releases/latest">https://github.com/ponyatov/itstep/releases/latest</a> или воспользоваться системой контроля версий:</p>
+<pre><code>$ cd ~
+$ git clone -o gh https://github.com/ponyatov/itstep.git
+$ cd itstep
+</code></pre>
+<p>Вы можете просматривать содержимое каталога проекта в любом файловом менеджере, среде [[VSCode]], или установить IDE [[Eclipse]].</p>
+<h3 id="структура-проекта">структура проекта</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>Makefile</code></td>
+<td>главный файл проекта для утилиты [[GNU Make]]</td>
+</tr>
+<tr class="even">
+<td><code>hw/</code></td>
+<td>каталог с настройками специфичными для каждой конкретной целевой платформы</td>
+</tr>
+<tr class="odd">
+<td><code>hw/rpi3.mk</code></td>
+<td>набор переменных, настраивающих сборку для [[Raspberry Pi 3 B]]</td>
+</tr>
+<tr class="even">
+<td><code>hw/rpi3.br</code></td>
+<td>настройки Buildroot для [[Игровая консоль]]</td>
+</tr>
+<tr class="odd">
+<td><code>hw/x86.mk</code></td>
+<td>набор переменных, настраивающих сборку для любых [[x86]] включая [[QEMU-i386]]</td>
+</tr>
+<tr class="even">
+<td><code>hw/x86.br</code></td>
+<td>настройки Buildroot для [[QEMU-i386]]</td>
+</tr>
+<tr class="odd">
+<td><code>cpu/</code></td>
+<td>тонкие настройки на процессор/SoC</td>
+</tr>
+</tbody>
+</table>
+<h3 id="переменные-make-для-настройки-сборки">переменные <code>make</code> для настройки сборки</h3>
+<p>Параметры сборки задаются в переменных [[GNU Make]], с заданными значениями по умолчанию, которые вы можете менять в командной строке. Полный набор переменных, включая все служебные, вы можете найти в <code>Makefile</code> и <code>hw/</code> файлах. Здесь перечислим только те, которые нужны с точки зрения пользователя:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>HW</code></td>
+<td><code>x86</code></td>
+<td>целевая аппаратная платформа</td>
+</tr>
+<tr class="even">
+<td><code>CPU</code></td>
+<td>[[i486]]</td>
+<td>процессор</td>
+</tr>
+</tbody>
+</table>
+<h3 id="сборка-системы-для-x86">сборка системы для x86</h3>
+<p>Возможно у вас еще нет подходящей "малины", поэтому для начала можно попробовать систему на старом компьютере или в виртуальной машине. Для этого ее нужно собрать, явно указав целевую платформу. <em>Процесс достаточно длительный (от получаса на мощной рабочей станции), и закачивает несколько сотен Мб архивов из сети</em>:</p>
+<pre><code>$ cd ~/itstep
+$ make HW=x86 CPU=i486 os
+$ ls -la ~/itstep/firmware
+</code></pre>
+<p>Собранные загрузочные образы (в различных форматах) попадают в каталог <code>/firmware</code> откуда вы можете их ипользовать для ручного запуска, или копирования на загрузочную SD-карту или USB-флешку.</p>
+<h3 id="запуск-в-виртуальной-машине">запуск в виртуальной машине</h3>
+<p><strong>Не запускайте сборку на любом компьютере, на котором есть хотя бы какие-то полезные данные, или для которого важна работоспособность</strong>. Система экспериментальная, и никто не гарантирует что после ее запуска вы потом сможете воспользоваться компьютером по прямому назначению -- случайно могут быть затерты данные на жестком диске, или в каком-то особо редком случае выйдет из строя "железо". <em>Даже если система сама по себе стабильна и безопасна, всегда есть точка отказа -- пользователь</em>, который по ошибке может случайно затереть часть содержимого жесткого диска.</p>
+<p>Для таких случаев существует наиболее оптимальный вариант -- запуск вашей Linux-системы (далее вы научитеть делать такую систему с нуля) в виртуальной машине (в более широком смысле -- эмуляторе). В <code>Makefile</code> прописан автоматический запуск для [[QEMU]] который должен быть установлен в вашей рабочей системе. Если вам нравится пользоваться ВМ/эмуляторами с графической оболочной, и ручной настройкой, вы можете поставить [[VirtualBox]].</p>
+<pre><code>$ make HW=x86 emu
+</code></pre>
+<h1 id="создание-языков-программирования">создание языков программирования</h1>
+<p>[[mex]]</p>
+<h2 id="трансформация-программ">трансформация программ</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Program_transformation">https://en.wikipedia.org/wiki/Program_transformation</a></li>
+<li><a href="https://www.program-transformation.org/Transform/ProgramTransformation">https://www.program-transformation.org/Transform/ProgramTransformation</a></li>
+</ul>
+<h3 id="утечка-памяти">утечка памяти</h3>
+<ul>
+<li>[[Vagrant]]</li>
+</ul>
+<h2 id="фреймы-марвина-мински">фреймы Марвина Мински</h2>
+<ul>
+<li>[minsky] [[Марвин Мински]] <strong>Фреймы для представления знаний</strong> М. "Энергия" 1978</li>
+<li><a href="https://www.youtube.com/watch?v=nXJ_2uGWM-M">https://www.youtube.com/watch?v=nXJ_2uGWM-M</a></li>
 </ul>
 </body>
 </html>
